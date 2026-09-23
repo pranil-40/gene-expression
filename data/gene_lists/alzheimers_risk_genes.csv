@@ -1,0 +1,11 @@
+disease,gene,pvalue,lead_snp,source,study_accession,pubmed_id,citation
+alzheimers,BIN1,5.9999999999999995e-118,rs6733839,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,FNTAP1,3e-48,rs3851179,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,CR1,7e-46,rs679515,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,CLU,2e-44,rs11787077,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,MS4A4A,4e-42,rs1582763,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,ABCA7,2e-37,rs12151021,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,TREM2,3e-37,rs75932628,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,PMS2P1,1e-26,rs7384878,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,APH1B,2e-25,rs117618017,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"
+alzheimers,PTK2B,4e-22,rs73223431,gwas_catalog,GCST90027158,35379992,"Bellenguez et al. 2022, Nature Genetics"

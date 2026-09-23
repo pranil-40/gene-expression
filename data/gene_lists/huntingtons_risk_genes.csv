@@ -1,0 +1,12 @@
+disease,gene,pvalue,lead_snp,source,study_accession,pubmed_id,citation
+huntingtons,DHFR,1e-10,rs1232027,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,ADGB,9e-07,rs73786719,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,KIF9,2e-06,rs114688092,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,PTPRM,2e-06,rs79029191,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,ATG3P1,2e-06,rs932428,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,OR10A2,2e-06,rs3889139,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,ADD1,3e-06,rs114643193,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,TENM2,3e-06,rs6882169,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,PTDSS1,3e-06,rs80260687,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,BRF1,3e-06,rs28406206,gwas_catalog,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"
+huntingtons,HTT,,,manual_causal_gene,GCST004691,28642124,"Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)"

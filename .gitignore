@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Data (large, downloaded — not committed; see README for how to regenerate)
+data/raw/
+data/abagen-data/
+*.nii
+*.nii.gz
+
+# OS
+.DS_Store
+Thumbs.db

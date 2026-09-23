@@ -1,0 +1,11 @@
+disease,gene,pvalue,lead_snp,source,study_accession,pubmed_id,citation
+parkinsons,SNCA,4e-154,rs356182,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,LRRK2,4e-148,rs34637584,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,KRTCAP2,2e-70,rs35749011,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,TMEM175,1e-69,rs34311866,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,LINC02210-CRHR1,4e-68,rs62053943,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,NSF,8.999999999999999e-67,rs199453,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,KANSL1,2e-40,rs7225002,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,STK39,2.9999999999999996e-39,rs1474055,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,HIP1R,1e-37,rs10847864,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
+parkinsons,SPPL2C,1e-37,rs7221167,gwas_catalog,GCST009325,31701892,"Nalls et al. 2019, Lancet Neurology"
