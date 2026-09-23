@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 EXPRESSION_PATH = ROOT / "data" / "processed" / "regional_expression.csv"
 
 CHECK_GENE = "SNCA"
-TARGET_PATTERNS = [r"brain.?stem"]  # closest available proxy for substantia nigra
+TARGET_PATTERNS = [r"substantia.?nigra"]
 
 
 def main() -> None:

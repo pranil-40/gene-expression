@@ -5,15 +5,18 @@ __pycache__/
 .venv/
 venv/
 
-# Data (large, downloaded — not committed; see README for how to regenerate)
+# Data (large, downloaded, not committed - see README for how to regenerate)
 data/raw/
 data/abagen-data/
 *.nii
 *.nii.gz
+# small custom atlas built by build_sn_atlas.py, want this one committed
+!data/processed/atlas_with_sn.nii.gz
 
 # OS
 .DS_Store
 Thumbs.db
 
 # scratch
-.pipeline_log.txt
+.pipeline_log*.txt
+.tmp/

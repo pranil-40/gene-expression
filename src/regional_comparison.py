@@ -2,10 +2,10 @@
 For each disease, compares mean risk-gene expression in the region it
 destroys vs. every other region.
 
-Target regions (see README for why): PD -> Brain-Stem (DK atlas doesn't have
-a separate substantia nigra label, brainstem is the closest thing available
-and it's a real limitation, not ideal). AD -> entorhinal. HD -> caudate +
-putamen (= striatum).
+Target regions: PD -> substantia_nigra (carved out of the DK atlas's
+brainstem blob using real AHBA tissue-sample coordinates, see
+build_sn_atlas.py - the plain brainstem label failed validation badly). AD ->
+entorhinal. HD -> caudate + putamen (= striatum).
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ GENE_LIST_DIR = ROOT / "data" / "gene_lists"
 OUT_PATH = ROOT / "results" / "tables" / "regional_comparison.csv"
 
 TARGET_REGION_PATTERNS = {
-    "parkinsons": [r"brain.?stem"],
+    "parkinsons": [r"substantia.?nigra"],
     "alzheimers": [r"entorhinal"],
     "huntingtons": [r"caudate", r"putamen"],
 }

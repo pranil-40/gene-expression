@@ -16,11 +16,8 @@ ROOT = Path(__file__).resolve().parent.parent
 GENE_LIST_PATH = ROOT / "data" / "gene_lists" / "all_genes.csv"
 OUT_PATH = ROOT / "data" / "processed" / "regional_expression.csv"
 CENTROIDS_OUT_PATH = ROOT / "data" / "processed" / "region_centroids.csv"
-
-# Desikan-Killiany atlas, comes bundled with abagen. ~83 regions total
-# (cortical + subcortical), more than the ~30 the spec mentioned but it's
-# the standard atlas people use with abagen so I stuck with it.
-ATLAS = "desikan_killiany"
+SN_ATLAS_IMAGE = ROOT / "data" / "processed" / "atlas_with_sn.nii.gz"
+SN_ATLAS_INFO = ROOT / "data" / "processed" / "atlas_with_sn_info.csv"
 
 
 def load_gene_list() -> list[str]:
@@ -40,6 +37,11 @@ def compute_region_centroids(atlas_image: str, atlas_info: pd.DataFrame) -> pd.D
     data = np.asarray(img.dataobj)
     affine = img.affine
 
+    # fetch_desikan_killiany() gives back a path to the info CSV, not a
+    # loaded DataFrame
+    if isinstance(atlas_info, (str, Path)):
+        atlas_info = pd.read_csv(atlas_info)
+
     id_to_label = dict(zip(atlas_info["id"], atlas_info["label"]))
     rows = []
     for region_id, label in id_to_label.items():
@@ -56,15 +58,32 @@ def compute_region_centroids(atlas_image: str, atlas_info: pd.DataFrame) -> pd.D
 def main() -> None:
     genes = load_gene_list()
 
-    atlas = abagen.fetch_desikan_killiany()
+    if SN_ATLAS_IMAGE.exists() and SN_ATLAS_INFO.exists():
+        # DK atlas's plain "brainstem" label failed the validation checkpoint
+        # (SNCA came out almost dead last, see build_sn_atlas.py for why) so
+        # use the version with substantia nigra carved out of it instead.
+        print("using the atlas with substantia nigra carved out of brainstem "
+              "(run build_sn_atlas.py first if this file doesn't exist yet)")
+        atlas_image, atlas_info = str(SN_ATLAS_IMAGE), pd.read_csv(SN_ATLAS_INFO)
+    else:
+        atlas = abagen.fetch_desikan_killiany()
+        atlas_image = atlas["image"]
+        atlas_info = pd.read_csv(atlas["info"]) if isinstance(atlas["info"], (str, Path)) else atlas["info"]
+
     print("pulling AHBA expression via abagen, this takes a while on first run...")
     expression = abagen.get_expression_data(
-        atlas["image"],
-        atlas["info"],
+        atlas_image,
+        atlas_info,
         gene_norm="srs",
         region_agg="donors",
         missing="interpolate",
     )
+    # abagen indexes its output by the atlas's numeric region id, not the
+    # name -- swap in the actual region names so regional_comparison.py's
+    # regex matching (looking for "entorhinal", "caudate", etc.) has
+    # something to match against.
+    id_to_label = dict(zip(atlas_info["id"], atlas_info["label"]))
+    expression = expression.rename(index=id_to_label)
 
     available = [g for g in genes if g in expression.columns]
     missing = sorted(set(genes) - set(available))
@@ -78,7 +97,7 @@ def main() -> None:
     print(f"Wrote regional expression matrix -> {OUT_PATH} "
           f"({result.shape[0]} regions x {result.shape[1]} genes)")
 
-    centroids = compute_region_centroids(atlas["image"], atlas["info"])
+    centroids = compute_region_centroids(atlas_image, atlas_info)
     centroids = centroids.loc[centroids.index.intersection(result.index)]
     centroids.to_csv(CENTROIDS_OUT_PATH)
     print(f"Wrote region centroids -> {CENTROIDS_OUT_PATH}")
