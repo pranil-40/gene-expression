@@ -1,44 +1,43 @@
 <!--
-STATUS: SKELETON ONLY — do not fill in results, figures, or conclusions
-until src/expression_pipeline.py through src/visualize.py have actually
-been run on real AHBA data and src/validation_checkpoint.py has PASSED.
-See repo README.md "Status" section.
+notes to self: don't fill in results/figures/conclusions until
+expression_pipeline.py -> visualize.py have actually run on real data and
+validation_checkpoint.py says PASS. see README status section.
 -->
 
-# Neurogenomic Regional Vulnerability: Do Disease Risk Genes Concentrate Where the Disease Strikes?
+# Do Disease Risk Genes Concentrate Where the Disease Actually Strikes?
 
-**Author:** Pranil
-**Status:** Draft skeleton — pending real pipeline run
+Pranil
+draft skeleton, waiting on real pipeline run
 
-## 1. Research Question
+## 1. Research question
 
-*(See README.md — carry over the framing almost verbatim, it's already tight.)*
+(pull from README, that framing already works)
 
 ## 2. Method
 
-- Gene lists: source studies, selection criteria, exact rule for picking top genes (cite `src/fetch_gwas_genes.py`).
-- Expression data: AHBA via abagen, atlas used, normalization/aggregation settings.
-- Target-region mapping and why (including the Parkinson's brainstem-proxy caveat).
-- Validation checkpoint (SNCA) and its result.
-- Statistical test: regional comparison + BrainSMASH spatial permutation, FDR correction.
+- gene lists: which studies, how genes were picked (fetch_gwas_genes.py)
+- expression data: AHBA/abagen, atlas, normalization settings used
+- target region for each disease + the brainstem/SN caveat
+- validation checkpoint result (SNCA)
+- stats: regional comparison + BrainSMASH permutation, FDR correction
 
 ## 3. Results
 
-*(TBD — insert the three regional heatmaps, the results summary table, and the per-disease p-values once the real run completes.)*
+TBD - heatmaps go here, results table, p-values per disease
 
 ## 4. Discussion
 
-*(TBD — what the pattern across the three diseases actually suggests, and what it doesn't.)*
+TBD - what does the pattern across the three diseases actually mean, and what does it not mean
 
 ## 5. Limitations
 
-- Substantia nigra not separately resolvable in the DK+aseg atlas (brainstem proxy).
-- AHBA reference: only 6 donors, demographic skew.
-- Huntington's gene list comes from a progression-modifier GWAS in HTT carriers, not a risk GWAS (HD is monogenic).
-- 3 of 31 mapped genes are pseudogene annotations, kept as-is (see README).
-- Correlational, not causal.
-- *(Add anything else that turns out to matter once real results are in — don't soften this section.)*
+- no separate SN label in the atlas, brainstem proxy dilutes the PD result
+- AHBA is only 6 donors, skewed demographics
+- HD gene list is from a progression-modifier GWAS, not a risk GWAS (HD is monogenic)
+- 3 of 31 genes are pseudogene annotations that got picked up by the mapping step
+- correlation, not causation
+- (add whatever else actually turns out to matter once results are in - don't go easy on this section)
 
-## 6. Data & Code Availability
+## 6. Code
 
-Code and data: `github.com/<to-fill-in>` — see README.md for exact rerun instructions.
+github link here once it's up - see README for how to rerun everything

@@ -1,23 +1,11 @@
 """
-Step 5: for each disease, compare mean expression of its risk genes in the
-region(s) it destroys against mean expression in every other region.
+For each disease, compares mean risk-gene expression in the region it
+destroys vs. every other region.
 
-Target-region mapping (documented, not tuned after seeing results):
-  - Parkinson's -> substantia nigra. The Desikan-Killiany(+aseg) atlas does
-    not resolve the substantia nigra as its own region, so the atlas's
-    "Brain-Stem" label (which anatomically contains it, along with the pons
-    and medulla) is used as the nearest available proxy. This dilutes any
-    true regional signal and is called out explicitly in the report's
-    limitations section.
-  - Alzheimer's -> entorhinal cortex (DK region "entorhinal", present
-    bilaterally).
-  - Huntington's -> striatum, taken as the union of caudate + putamen
-    (DK+aseg regions), the two structures that make up the striatum.
-
-Run:  .venv/Scripts/python src/regional_comparison.py
-Input:  data/processed/regional_expression.csv (from expression_pipeline.py)
-        data/gene_lists/<disease>_risk_genes.csv
-Output: results/tables/regional_comparison.csv
+Target regions (see README for why): PD -> Brain-Stem (DK atlas doesn't have
+a separate substantia nigra label, brainstem is the closest thing available
+and it's a real limitation, not ideal). AD -> entorhinal. HD -> caudate +
+putamen (= striatum).
 """
 from __future__ import annotations
 
@@ -49,14 +37,10 @@ def match_regions(all_regions: list[str], patterns: list[str]) -> list[str]:
 
 
 def cohens_d(a: np.ndarray, b: np.ndarray) -> float:
-    """Standardized effect size for target (a) vs. other (b) regions.
-
-    Parkinson's and Alzheimer's each map to a single atlas region, so `a`
-    often has n=1 — the usual pooled-variance Cohen's d is undefined then
-    (zero degrees of freedom in the target group). In that case fall back to
-    a one-sample z-score against the "other regions" distribution instead,
-    which is the standard workaround and is well-defined for n=1.
-    """
+    # a = target region(s), b = everything else. PD and AD only map to one
+    # region each so a often has n=1 and the normal pooled-variance formula
+    # divides by zero df. When that happens just use b's std instead (basically
+    # a z-score of the target against the rest of the brain).
     if len(a) <= 1 or len(b) <= 1:
         denom = b.std(ddof=1) if len(b) > 1 else a.std(ddof=1)
         return (a.mean() - b.mean()) / denom if denom > 0 else np.nan
@@ -78,7 +62,7 @@ def main() -> None:
             print(f"SKIP {disease}: none of its risk genes found in expression matrix")
             continue
 
-        # Mean expression of this disease's risk genes, per region.
+        # mean expression of this disease's risk genes, per region
         gene_score = expression[genes].mean(axis=1)
         disease_scores[disease] = gene_score
 
@@ -109,7 +93,7 @@ def main() -> None:
     print(result.to_string(index=False))
     print(f"\nWrote -> {OUT_PATH}")
 
-    # Save per-disease gene-score maps for the permutation test step.
+    # per-disease gene-score maps, needed by permutation_test.py next
     scores_path = ROOT / "data" / "processed" / "disease_gene_scores.csv"
     pd.DataFrame(disease_scores).to_csv(scores_path)
     print(f"Wrote per-region disease gene-score maps -> {scores_path}")

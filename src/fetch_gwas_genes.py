@@ -1,32 +1,18 @@
 """
-Pull top disease-associated genes from the GWAS Catalog REST API.
+Grabs the top risk genes for PD/AD/HD straight from the GWAS Catalog API
+instead of me just typing in genes I remember from papers. Rule (decided
+before running this, see README for the reasoning): one big GWAS per disease
+picked by PMID, take associations sorted by p-value, map each lead SNP to a
+gene using GWAS Catalog's own genomic context, keep the top 10 unique genes.
 
-Selection criteria (fixed here, before any downstream expression analysis —
-documented so the choice can't be quietly re-tuned after seeing results):
+Studies used: Nalls 2019 for PD (GCST009325), Bellenguez 2022 for AD
+(GCST90027158), Moss 2017 for HD (GCST004691, this one's actually a
+progression-modifier GWAS in HTT carriers, not a risk GWAS, since HD is
+monogenic and doesn't really have a risk GWAS the same way PD/AD do. Added
+HTT itself by hand since it obviously wouldn't show up otherwise).
 
-  1. One landmark GWAS study per disease, chosen for sample size / recency and
-     identified by its PubMed ID, independent of anything found later in this
-     project:
-       - Parkinson's:  Nalls et al. 2019, Lancet Neurology, PMID 31701892
-                        (GWAS Catalog accession GCST009325)
-       - Alzheimer's:  Bellenguez et al. 2022, Nat Genet, PMID 35379992
-                        (GCST90027158)
-       - Huntington's: Moss et al. 2017, Lancet Neurology, PMID 28642124 —
-                        a GWAS of disease-progression modifiers *within*
-                        confirmed HTT mutation carriers (GCST004691). HD is
-                        monogenic, so there is no case/control risk GWAS in
-                        the PD/AD sense; this is the closest equivalent
-                        (genetic modifiers of clinical severity/onset), and
-                        HTT itself is added manually as the causal gene since
-                        no risk-GWAS pipeline would otherwise surface it.
-  2. Associations ranked by ascending reported p-value.
-  3. Each lead SNP mapped to a gene via the GWAS Catalog's own genomic-context
-     annotation: prefer a gene whose body the SNP falls inside
-     (isIntergenic == False); otherwise take the nearest flanking gene.
-  4. Top TOP_N unique genes kept per disease, in p-value rank order.
-
-Run:  .venv/Scripts/python src/fetch_gwas_genes.py
-Output: data/gene_lists/<disease>_risk_genes.csv, data/gene_lists/all_genes.csv
+python src/fetch_gwas_genes.py
+-> writes data/gene_lists/<disease>_risk_genes.csv + all_genes.csv
 """
 from __future__ import annotations
 
@@ -37,9 +23,8 @@ from pathlib import Path
 
 import requests
 
-# Non-protein-coding / placeholder annotations to skip when mapping a SNP to
-# a gene (uncharacterized loci, pseudogenes, antisense/lncRNA, micro-RNAs) —
-# we want the nearest *named* gene a wet-lab reader would recognize.
+# skip uncharacterized loci / pseudogenes / lncRNA / miRNA annotations when
+# picking the nearest gene for a SNP -- want an actual named gene
 _SKIP_GENE_PATTERN = re.compile(
     r"^(LOC\d+|LINC\d+|MIR\d+.*|RNU\d+.*|RNA5S.*|SNOR.*|.*-AS\d*)$"
 )
@@ -65,9 +50,7 @@ STUDIES = {
         "accession": "GCST004691",
         "pubmed_id": "28642124",
         "citation": "Moss et al. 2017, Lancet Neurology (progression-modifier GWAS in HTT carriers)",
-        # HTT is the monogenic cause of HD and would not appear in a modifier
-        # GWAS; included manually and flagged as such in the output.
-        "manual_add": ["HTT"],
+        "manual_add": ["HTT"],  # won't show up in a modifier GWAS, add it manually
     },
 }
 

@@ -1,94 +1,87 @@
 # Neurogenomic Regional Vulnerability
 
-Parkinson's kills the substantia nigra. Alzheimer's begins in the entorhinal
+Parkinson's kills the substantia nigra. Alzheimer's starts in the entorhinal
 cortex. Huntington's destroys the striatum. The genes that raise risk for
-each sit in every cell of the body — so why does the damage always land in
-one place?
+each of these diseases are present in every cell in the body, not just the
+region that ends up damaged. So why does the damage always land in the same
+place?
 
-This project tests whether the brain regions where each disease's GWAS risk
-genes are most *expressed* are the same regions the disease goes on to
-*destroy*, and whether that overlap survives a spatial null model or is just
-a plot that looks convincing.
+That's the question this project tries to answer: are the brain regions
+where a disease's GWAS risk genes are most expressed the same regions that
+disease actually destroys, and does that hold up once you test it properly
+instead of just eyeballing a bar chart.
 
-Original analysis on public data: [Allen Human Brain Atlas](https://human.brain-map.org/)
-regional gene expression (via [`abagen`](https://abagen.readthedocs.io/)),
-[GWAS Catalog](https://www.ebi.ac.uk/gwas/) risk genes, and
-[BrainSMASH](https://brainsmash.readthedocs.io/) spatial permutation testing.
+Data sources: gene expression from the [Allen Human Brain Atlas](https://human.brain-map.org/)
+(pulled with [abagen](https://abagen.readthedocs.io/)), risk genes from the
+[GWAS Catalog](https://www.ebi.ac.uk/gwas/), significance testing with
+[BrainSMASH](https://brainsmash.readthedocs.io/) spatial nulls.
 
-## Method, in order
+## What the pipeline does
 
-1. **Gene lists** ([`src/fetch_gwas_genes.py`](src/fetch_gwas_genes.py)) — top
-   10 genes per disease from one landmark GWAS study each (picked by sample
-   size/recency, not by anything found later in this pipeline), ranked by
-   p-value, gene assigned via the GWAS Catalog's own SNP-to-gene genomic
-   context. Exact studies and selection rule are documented in the script's
-   docstring. Output: [`data/gene_lists/`](data/gene_lists/).
-2. **Regional expression** ([`src/expression_pipeline.py`](src/expression_pipeline.py))
-   — pulls AHBA microarray expression for those genes across the
-   Desikan-Killiany(+subcortical) atlas (~83 regions) via `abagen`.
-3. **Validation checkpoint** ([`src/validation_checkpoint.py`](src/validation_checkpoint.py))
-   — confirms SNCA (the single strongest PD GWAS hit) is highly expressed
-   near the substantia nigra proxy region *before* trusting anything else.
-4. **Regional comparison** ([`src/regional_comparison.py`](src/regional_comparison.py))
-   — per disease, mean risk-gene expression in the region it destroys vs.
-   every other region.
-5. **Spatial permutation test** ([`src/permutation_test.py`](src/permutation_test.py))
-   — BrainSMASH surrogate maps (N=1000) that preserve spatial autocorrelation,
-   used to get an honest p-value instead of naive shuffling; Benjamini-Hochberg
-   FDR correction across the 3 diseases.
-6. **Figures** ([`src/visualize.py`](src/visualize.py)) — one regional
-   expression bar chart per disease plus a results summary table.
+1. `src/fetch_gwas_genes.py` - pulls the top 10 risk genes per disease from one
+   big GWAS study each (chosen by PMID before looking at anything downstream),
+   ranked by p-value, gene assigned to each lead SNP through GWAS Catalog's
+   own genomic-context lookup. Writes to `data/gene_lists/`.
+2. `src/expression_pipeline.py` - gets AHBA expression for those genes across
+   the Desikan-Killiany atlas (~83 regions) via abagen. This is the slow part.
+3. `src/validation_checkpoint.py` - checks that SNCA (the #1 PD GWAS hit)
+   actually shows up high near the substantia nigra proxy before trusting
+   anything past this point.
+4. `src/regional_comparison.py` - for each disease, mean risk-gene expression
+   in its target region vs. everywhere else.
+5. `src/permutation_test.py` - BrainSMASH spatial null (1000 surrogates) so
+   the p-values actually mean something, plus BH-FDR correction across the
+   three diseases.
+6. `src/visualize.py` - the figures.
 
-## Target-region mapping (decided before running anything, see `src/regional_comparison.py`)
+## Target region for each disease
 
-| Disease | Destroyed region | Atlas proxy used |
+| Disease | Region destroyed | What I used |
 |---|---|---|
-| Parkinson's | Substantia nigra | **Brain-Stem** (DK+aseg has no separate SN label — the brainstem label anatomically contains it, along with pons/medulla; this dilutes any true signal and is a stated limitation) |
-| Alzheimer's | Entorhinal cortex | `entorhinal` (direct DK match) |
-| Huntington's | Striatum | `caudate` + `putamen` (direct DK+aseg match) |
+| Parkinson's | Substantia nigra | Brain-Stem (DK atlas doesn't break out the SN separately, this is the closest available label and it's not great - see limitations) |
+| Alzheimer's | Entorhinal cortex | `entorhinal` (direct match) |
+| Huntington's | Striatum | `caudate` + `putamen` |
 
 ## Running it
 
-Everything here targets a local venv (`.venv/`) or Google Colab.
-
 ```bash
 python -m venv .venv
-.venv/Scripts/activate   # or `source .venv/bin/activate` on macOS/Linux
+.venv/Scripts/activate   # source .venv/bin/activate on mac/linux
 pip install -r requirements.txt
 
-python src/fetch_gwas_genes.py        # fast, no large downloads
-python src/expression_pipeline.py     # SLOW first run — downloads several GB of AHBA donor data
-python src/validation_checkpoint.py   # must PASS before trusting the next two steps
+python src/fetch_gwas_genes.py        # fast
+python src/expression_pipeline.py     # slow, downloads several GB first time
+python src/validation_checkpoint.py   # should say PASS
 python src/regional_comparison.py
 python src/permutation_test.py
 python src/visualize.py
 ```
 
-In Colab: `!pip install -r requirements.txt` in the first cell, then run the
-same scripts (or the equivalent notebook cells in `notebooks/`).
+Or just open `notebooks/neurogenomic_regional_vulnerability.ipynb` in Colab -
+same steps, `!pip install` instead.
 
-## Known limitations (see full report for the honest version)
+## Limitations
 
-- The Desikan-Killiany(+aseg) atlas cannot resolve the substantia nigra as
-  its own region; the Parkinson's result uses "Brain-Stem" as a coarse proxy.
-- The AHBA reference is only 6 donors, all male-skewed and older-adult —
-  small and non-representative for a lifespan disease question.
-- Huntington's is monogenic; there is no case/control "risk GWAS" for it in
-  the PD/AD sense, so its gene list comes from a progression-modifier GWAS in
-  confirmed HTT carriers, plus HTT itself added manually (documented in
-  `src/fetch_gwas_genes.py`).
-- Regional co-localization of risk-gene expression and disease damage is
-  correlational, not causal.
-- Three of the 31 automatically-mapped genes (FNTAP1, PMS2P1, ATG3P1) are
-  pseudogene annotations nearest to their lead SNP per the GWAS Catalog's own
-  mapping — kept as-is rather than hand-corrected after the fact (to avoid
-  quietly re-tuning the gene list once results are visible), but likely
-  contribute little/no real expression signal.
+Being upfront about the weak points instead of burying them:
+
+- No separate substantia nigra label in the atlas I used, so the PD result
+  is diluted by using the whole brainstem as a stand-in. If PD comes back
+  non-significant this is the first thing I'd blame.
+- AHBA is only 6 donors and skews older/male. Small reference for a
+  lifespan-disease question.
+- HD is monogenic, so there isn't really a "risk GWAS" for it like PD/AD
+  have - I used a progression-modifier GWAS in confirmed HTT carriers
+  instead and added HTT itself by hand (see `fetch_gwas_genes.py`).
+- Three of the 31 genes the pipeline picked out (FNTAP1, PMS2P1, ATG3P1) are
+  pseudogene annotations, not real protein-coding genes. Left them in rather
+  than hand-fixing the list after seeing results - that would be exactly the
+  kind of after-the-fact tuning this project is trying to avoid. They
+  probably just add noise.
+- Correlation, not causation. Genes being expressed where damage happens
+  doesn't mean they cause the damage there.
 
 ## Status
 
-Scaffolded — pipeline code is complete and runs end-to-end on the fetched
-gene lists. The AHBA data pull (`expression_pipeline.py`) has not yet been
-run to completion (multi-GB download); results and figures are not yet
-generated. See `report/` for the write-up, to be filled in once real results
-exist.
+Code's done and dry-run tested end-to-end on fake data. Real AHBA data pull
+is running now - once that's done the rest of the pipeline runs on real
+numbers and `report/report_draft.md` gets filled in.

@@ -1,29 +1,17 @@
 """
-Step 6: test whether each disease's target-region enrichment (Step 5) holds
-up against a spatial null model, not just naive shuffling.
+This is the actual significance test. Naive shuffling of region labels isn't
+a fair null here because brain expression is spatially autocorrelated -
+neighboring regions just look alike, so any random map with structure similar
+to the real one could look "enriched" by chance. BrainSMASH fixes this by
+generating surrogate maps that keep the same spatial autocorrelation as the
+real map but scramble which region gets which value, which is a much harder
+null to beat.
 
-Naive label permutation is the wrong null here: brain gene expression is
-spatially autocorrelated (nearby regions look more alike than far-apart
-ones), so a naive shuffle overstates significance. BrainSMASH instead
-generates surrogate brain maps that preserve the real map's spatial
-autocorrelation structure (via its variogram) while randomizing which
-anatomical location gets which value — a much harder null to beat.
-
-For each disease:
-  1. Take the real per-region gene-score map (mean expression of that
-     disease's risk genes, per region — computed in regional_comparison.py).
-  2. Generate N_PERMUTATIONS BrainSMASH surrogates of that map using the
-     real region x region distance matrix.
-  3. For each surrogate, recompute the same statistic as Step 5
-     (target-region mean minus all-other-region mean).
-  4. Empirical p-value = fraction of surrogate statistics >= the observed
-     statistic (one-sided: the hypothesis is enrichment, not depletion).
-  5. Correct the 3 resulting p-values for multiple comparisons (Benjamini-
-     Hochberg FDR).
-
-Run:  .venv/Scripts/python src/permutation_test.py
-Input:  data/processed/disease_gene_scores.csv, data/processed/region_centroids.csv
-Output: results/tables/permutation_results.csv
+For each disease: take the gene-score map from regional_comparison.py,
+generate 1000 BrainSMASH surrogates using the real inter-region distances,
+recompute the target-vs-rest stat on each surrogate, and see what fraction
+beat the real observed value -> that's the p-value. Then BH-FDR correct
+across the 3 diseases since we're running 3 tests.
 """
 from __future__ import annotations
 
@@ -67,8 +55,7 @@ def main() -> None:
     scores = pd.read_csv(SCORES_PATH, index_col=0)
     centroids = pd.read_csv(CENTROIDS_PATH, index_col=0)
 
-    # Align region ordering across scores and centroids, drop any region
-    # missing a centroid (shouldn't happen, but fail loudly if it does).
+    # keep only regions present in both files, just in case
     common = scores.index.intersection(centroids.index)
     scores = scores.loc[common]
     centroids = centroids.loc[common]

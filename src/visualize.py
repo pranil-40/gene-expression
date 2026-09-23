@@ -1,10 +1,6 @@
 """
-Step 7: one brain-region expression heat map per disease, plus the combined
-results table (regional comparison + permutation p-values) as a figure.
-
-Run:  .venv/Scripts/python src/visualize.py
-Output: results/figures/<disease>_regional_heatmap.png (x3)
-        results/figures/results_summary.png
+Makes the figures: one regional expression bar chart per disease, plus a
+summary table image with the effect sizes and permutation p-values.
 """
 from __future__ import annotations
 

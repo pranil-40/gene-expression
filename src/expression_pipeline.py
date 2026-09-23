@@ -1,16 +1,7 @@
 """
-Pull region-by-region gene expression for the risk-gene lists using abagen
-(Allen Human Brain Atlas microarray data).
-
-This step requires an internet connection and downloads several GB of AHBA
-donor data on first run (abagen caches it locally after that). Run it in
-Colab or a local environment with a good connection and disk space — see
-README.md.
-
-Run:  .venv/Scripts/python src/expression_pipeline.py
-Output: data/processed/regional_expression.csv
-        (rows = brain regions, columns = genes, values = mean microarray
-        expression per abagen's donor-aggregation defaults)
+Gets AHBA expression values for the risk genes, region by region, using
+abagen. First run downloads a few GB of donor data from the Allen Institute
+(abagen caches it after that so it's only slow once). Needs internet.
 """
 from __future__ import annotations
 
@@ -26,9 +17,9 @@ GENE_LIST_PATH = ROOT / "data" / "gene_lists" / "all_genes.csv"
 OUT_PATH = ROOT / "data" / "processed" / "regional_expression.csv"
 CENTROIDS_OUT_PATH = ROOT / "data" / "processed" / "region_centroids.csv"
 
-# Desikan-Killiany atlas (bundled with abagen's fetch_desikan_killiany) —
-# ~83 cortical + subcortical regions, well above the ~30-region target and a
-# standard choice so results are comparable to published AHBA work.
+# Desikan-Killiany atlas, comes bundled with abagen. ~83 regions total
+# (cortical + subcortical), more than the ~30 the spec mentioned but it's
+# the standard atlas people use with abagen so I stuck with it.
 ATLAS = "desikan_killiany"
 
 
@@ -40,14 +31,11 @@ def load_gene_list() -> list[str]:
 
 
 def compute_region_centroids(atlas_image: str, atlas_info: pd.DataFrame) -> pd.DataFrame:
-    """Mean voxel coordinate (world space, mm) per labeled region, keyed by
-    region-name label. The DK atlas gives left/right hemispheres separate
-    numeric ids under the *same* label (e.g. two ids both named
-    "entorhinal") — averaged together here into one row per label, since
-    that's also done for the expression matrix below (see main()), keeping
-    both sides aligned on a guaranteed-unique index without relying on
-    abagen's internal hemisphere/id bookkeeping.
-    """
+    # mean voxel coordinate per region, in mm. Need this later for the
+    # BrainSMASH distance matrix. DK atlas has separate L/R ids sharing the
+    # same label (e.g. two different ids both called "entorhinal") so this
+    # averages them into one row per label -- same thing happens to the
+    # expression matrix in main() so the two line up.
     img = nib.load(atlas_image)
     data = np.asarray(img.dataobj)
     affine = img.affine
@@ -69,8 +57,7 @@ def main() -> None:
     genes = load_gene_list()
 
     atlas = abagen.fetch_desikan_killiany()
-    print("Pulling AHBA expression data via abagen (first run downloads donor "
-          "data — this can take a while and several GB of disk)...")
+    print("pulling AHBA expression via abagen, this takes a while on first run...")
     expression = abagen.get_expression_data(
         atlas["image"],
         atlas["info"],
@@ -84,8 +71,7 @@ def main() -> None:
     if missing:
         print(f"WARNING: {len(missing)} genes not found in AHBA data: {missing}")
 
-    # Collapse any left/right duplicate-labeled rows (see compute_region_centroids
-    # docstring) so the region index is guaranteed unique before saving.
+    # collapse duplicate L/R region labels before saving (see compute_region_centroids)
     result = expression[available].groupby(expression.index).mean()
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(OUT_PATH)
