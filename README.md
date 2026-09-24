@@ -122,6 +122,5 @@ Being upfront about the weak points instead of burying them:
 
 ## Status
 
-Full pipeline run on real data, results and figures in `results/`.
-`report/report_draft.md` still needs the results/discussion sections filled
-in with real numbers.
+Full pipeline run on real data, results and figures in `results/`, writeup
+in `report/report_draft.md`. Not pushed to GitHub yet.

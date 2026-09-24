@@ -64,7 +64,6 @@ def main() -> None:
     print(f"pooled {len(sn_coords)} real substantia nigra tissue samples across all donors")
 
     brainstem_voxels = np.argwhere(data == brainstem_id)
-    inv_affine = np.linalg.inv(affine)
     voxel_mm = nib.affines.apply_affine(affine, brainstem_voxels)
 
     # distance from every brainstem voxel to the nearest real SN sample
