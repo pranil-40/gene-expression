@@ -87,11 +87,12 @@ expression than the rest of the brain, the opposite of the hypothesis.
 
 ## 4. Discussion
 
-Mixed result, and I think the mixed part is the actual finding, not a
-failure. One disease (PD) supports the "risk genes concentrate where the
-damage happens" hypothesis under a real statistical test. One (AD) looks
-promising until you test it properly and the effect dissolves. One (HD)
-goes the other direction entirely.
+Mixed result, and I think the mixed part is the actual finding here, not a
+failure to get a clean answer. PD supports the "risk genes concentrate where
+the damage happens" hypothesis under a real statistical test. AD looks
+promising in a raw comparison but the effect dissolves once you test it
+properly. HD goes the other direction entirely - lower expression in the
+target region, not higher.
 
 The Parkinson's validation checkpoint is worth dwelling on, because it
 didn't behave the way I expected going in. SNCA - the single strongest PD
@@ -105,10 +106,9 @@ body pathology), which isn't the same thing as "this region transcribes more
 SNCA mRNA than other regions" - and the AHBA donors are neurotypical, not PD
 patients, so this is baseline expression in a healthy brain, not diseased
 tissue. The composite 9-gene signal picking up the expected pattern even
-though the single most disease-relevant gene doesn't is itself an
-interesting result, and it's the reason this report leads with the honest
-version of the validation checkpoint instead of quietly only reporting the
-multi-gene result.
+though the single most disease-relevant gene doesn't is itself worth
+sitting with, rather than something to bury by only reporting the multi-gene
+result.
 
 For Huntington's, the direction reversal is worth taking seriously rather
 than writing off as noise. One read: HD's risk-gene list here comes from a
