@@ -1,126 +1,146 @@
-# Neurogenomic Regional Vulnerability
+# Neurogenomic regional vulnerability
 
-Parkinson's kills the substantia nigra. Alzheimer's starts in the entorhinal
-cortex. Huntington's destroys the striatum. The genes that raise risk for
-each of these diseases are present in every cell in the body, not just the
-region that ends up damaged. So why does the damage always land in the same
-place?
+Parkinson's disease damages the substantia nigra early. Alzheimer's disease
+begins in the entorhinal cortex. Huntington's disease hits the striatum. The
+genes that raise risk for these diseases are expressed throughout the body.
 
-That's the question this project tries to answer: are the brain regions
-where a disease's GWAS risk genes are most expressed the same regions that
-disease actually destroys, and does that hold up once you test it properly
-instead of just eyeballing a bar chart.
+This project asks a narrow version of the "why that region" question: are
+the genes near each disease's GWAS risk loci more highly expressed, in
+healthy adult brain tissue, in the region that disease damages than
+elsewhere? It also asks whether that holds up against spatial
+autocorrelation, comparable random gene sets, individual donors and genes,
+and reasonable alternative analysis choices.
 
-Data sources: gene expression from the [Allen Human Brain Atlas](https://human.brain-map.org/)
-(pulled with [abagen](https://abagen.readthedocs.io/)), risk genes from the
-[GWAS Catalog](https://www.ebi.ac.uk/gwas/), significance testing with
-[BrainSMASH](https://brainsmash.readthedocs.io/) spatial nulls.
+Data: Allen Human Brain Atlas microarray expression (6 donors) via
+[abagen](https://abagen.readthedocs.io/), GWAS Catalog associations, GENCODE
+v50, the CIT168 subcortical atlas, and GTEx v10 as an external check.
 
-## Result, short version
+## Result (v2)
 
-Ran this on real data. Parkinson's held up - substantia nigra is the #1
-region out of 43 for average PD risk-gene expression, and it survives the
-spatial permutation test (p=0.005, FDR-corrected p=0.015). Alzheimer's looked
-promising on a raw comparison (entorhinal cortex was elevated, Cohen's d=1.5)
-but did NOT survive the spatial null (FDR p=0.22) - the effect is
-indistinguishable from what you'd expect from spatial autocorrelation alone.
-Huntington's actually went the other way: caudate+putamen had *lower*
-average risk-gene expression than the rest of the brain, not higher.
+Under the analysis fixed in advance (`docs/analysis_plan.md`), neither
+Parkinson's nor Alzheimer's GWAS genes show enrichment in their target region:
 
-So: one disease supports the hypothesis, one doesn't hold up under proper
-testing, one contradicts it. See `report/report_draft.md` for the full
-writeup and what I think this actually means.
+| Disease | Target | Target rank | Spatial p | Gene-set p | Donors with a positive contrast |
+|---|---|---|---|---|---|
+| Parkinson's | substantia nigra pars compacta | 7 of 44 | 0.145 | 0.221 | 4 of 6 |
+| Alzheimer's | entorhinal cortex | 10 of 44 | 0.383 | 0.336 | 4 of 6 |
 
-## What the pipeline does
+A Parkinson's enrichment appears only under choices that fail on other
+grounds:
 
-1. `src/fetch_gwas_genes.py` - pulls the top 10 risk genes per disease from one
-   big GWAS study each (chosen by PMID before looking at anything downstream),
-   ranked by p-value, gene assigned to each lead SNP through GWAS Catalog's
-   own genomic-context lookup. Writes to `data/gene_lists/`.
-2. `src/build_sn_atlas.py` - the DK atlas's "brainstem" label doesn't separate
-   out the substantia nigra, so this carves it out as its own region using
-   real AHBA tissue-sample coordinates (see below).
-3. `src/expression_pipeline.py` - gets AHBA expression for those genes across
-   the modified atlas (~43 regions) via abagen. This is the slow part.
-4. `src/validation_checkpoint.py` - checks that SNCA shows up high in
-   substantia nigra. It doesn't, actually - see limitations, this turned out
-   to be more interesting than a simple pass/fail.
-5. `src/regional_comparison.py` - for each disease, mean risk-gene expression
-   in its target region vs. everywhere else.
-6. `src/permutation_test.py` - BrainSMASH spatial null (1000 surrogates) so
-   the p-values actually mean something, plus BH-FDR correction across the
-   three diseases.
-7. `src/visualize.py` - the figures.
+- substantia nigra masks drawn from sample coordinates, which turn out to
+  contain mostly other midbrain and pontine tissue
+- the v1 gene list, which counted one locus three times
+- switching off abagen's within-sample normalization, decided post hoc
 
-## Target region for each disease
+None of those clears the random gene-set null. The Huntington's gene sets are
+lower in striatum than elsewhere in every donor.
 
-| Disease | Region destroyed | What I used |
-|---|---|---|
-| Parkinson's | Substantia nigra | `substantia_nigra`, carved out of the DK atlas's brainstem blob (see `build_sn_atlas.py`) using real AHBA tissue-sample coordinates within a 6mm radius |
-| Alzheimer's | Entorhinal cortex | `entorhinal` (direct match) |
-| Huntington's | Striatum | `caudate` + `putamen` |
+The SNCA sanity check reproduces the published AHBA result (substantia nigra
+pars compacta ranks 1st of 103 structures) once samples are grouped by their
+anatomical labels.
+
+Two checks added afterwards (`docs/analysis_plan_amendment_1.md`) show what
+the null result can and can't say. Marker genes for dopaminergic neurons and
+for striatal projection neurons rank first in their target regions in all six
+donors, so the pipeline detects strong regional enrichment. The PD gene set
+would have needed a contrast about three times the observed one to pass both
+tests, so the result reads as "no large enrichment". A modest one isn't ruled
+out.
+
+Full results: `docs/v2_results.md`. Figures: `results/v2/figures/`.
+
+![Every run](results/v2/figures/fig7_sensitivity.png)
+
+## History
+
+The first version (v1, commit `220b838`) reported a significant Parkinson's
+result. A methods review found problems with its substantia nigra definition,
+gene mapping, spatial null and donor handling. v2 rebuilt the analysis;
+`docs/revision_log.md` lists every change and why. The v1 outputs are kept in
+`archive/v1_exploratory/`.
+
+## Layout
+
+```
+run_all.py                  reruns everything in order
+src/
+  common.py                 paths, abagen settings, shared statistics
+  build_atlases.py          left-hemisphere DK atlas variants, CIT168 SN
+  expression.py             one abagen extraction, then region matrices per definition
+  sn_anatomy_audit.py       where the substantia nigra samples actually are
+  fetch_gwas_genes.py       GWAS loci -> clumped loci -> one gene each, with audit table
+  gene_probe_audit.py       why any gene is missing from AHBA
+  snca_checkpoint.py        replication of Liscovitch & French 2014
+  analysis.py               contrasts, spatial and gene-set nulls, donor and leave-one-out checks
+  power_check.py            positive controls and power (post hoc)
+  gtex_check.py             external check in GTEx
+  figures.py                figures 1-8
+data/
+  atlases/                  atlas images built by build_atlases.py
+  gene_lists/               gene sets, audit tables, provenance
+  processed/                sample counts, abagen check and methods text
+results/
+  sn_audit/, snca_checkpoint/, v2/, gtex/
+docs/
+  analysis_plan.md          frozen before any v2 result was computed
+  analysis_plan_amendment_1.md  positive controls and power, added after the results
+  v2_results.md             results and what can be claimed
+  revision_log.md           v1 -> v2 changes
+  related_work.md           verified references
+archive/v1_exploratory/     v1 outputs and draft
+```
 
 ## Running it
 
 ```bash
 python -m venv .venv
-.venv/Scripts/activate   # source .venv/bin/activate on mac/linux
+.venv/Scripts/activate        # source .venv/bin/activate on macOS/Linux
 pip install -r requirements.txt
-
-python src/fetch_gwas_genes.py        # fast
-python src/expression_pipeline.py     # slow first time, downloads a few GB
-python src/build_sn_atlas.py          # needs expression_pipeline.py's donor data cached first, then rerun expression_pipeline.py so it picks up the new atlas
-python src/validation_checkpoint.py
-python src/regional_comparison.py
-python src/permutation_test.py
-python src/visualize.py
+python run_all.py
 ```
 
-(Yeah, `expression_pipeline.py` runs twice - once to get the donor data
-cached and build the plain DK atlas result, then `build_sn_atlas.py` needs
-that cached data to find real SN sample coordinates, then `expression_pipeline.py`
-runs again and picks up the new atlas automatically if it finds the files
-`build_sn_atlas.py` wrote. A bit clunky but it means the slow download only
-happens once.)
+The first run needs internet and several GB of disk: abagen downloads about
+4 GB of AHBA data to `~/abagen-data`, plus the CIT168 atlas, GENCODE v50, the
+HGNC gene table, and GTEx medians into `data/raw/`. Later runs reuse the
+cache. `python run_all.py --from analysis` reruns only the statistics and
+figures.
 
-Or just open `notebooks/neurogenomic_regional_vulnerability.ipynb` in Colab -
-same steps, `!pip install` instead.
+Versions: Python 3.11, abagen 0.1.3, BrainSMASH 0.11.0, pandas 1.5.3 (abagen
+0.1.3 breaks on pandas 2.x). GWAS Catalog release 2026-09-13 (see
+`data/gene_lists/provenance.json`).
 
 ## Limitations
 
-Being upfront about the weak points instead of burying them:
+- **Healthy tissue only.** AHBA donors are 6 adults without neurological
+  disease (5 male, 1 female, ages 24 to 57). The data say nothing about
+  disease mechanism, disease stage or individual risk.
+- **Few samples in small regions.** Substantia nigra pars compacta has 2 to 4
+  samples per donor, and entorhinal cortex 2 to 4.
+- **Coordinates are unreliable at this scale.** AHBA sample coordinates don't
+  place substantia nigra samples in the substantia nigra of a standard
+  template, so the primary analysis uses the anatomists' labels. Regions
+  defined by the Desikan-Killiany atlas mix neighbouring tissue too (for
+  example, DK "putamen" includes claustrum).
+- **Nearest-gene mapping isn't causal-gene mapping.** At several loci the
+  nearest protein-coding gene isn't the gene usually credited (GBA1, MAPT,
+  PICALM). Swapping those in doesn't change the conclusion.
+- **Preprocessing matters.** abagen's within-sample normalization changes the
+  substantia nigra result.
+- **The spatial null is imperfect.** With 44 regions, BrainSMASH surrogates
+  are less smooth than the data at short range, so spatial p-values lean
+  liberal.
+- **HD is a different kind of gene set.** Huntington's gene sets are the
+  causal gene and onset modifiers in mutation carriers. They are analysed
+  separately and only as exploratory.
+- **Correlation only.** Expression in a region doesn't show that the gene
+  causes damage there.
 
-- The substantia nigra region isn't a real anatomical segmentation - it's a
-  6mm-radius reconstruction around real tissue-sample coordinates from the
-  AHBA donors, carved out of the DK atlas's brainstem label. Better than
-  treating all of brainstem as one blob, but still an approximation, and the
-  6mm radius was picked without much justification (see `build_sn_atlas.py`).
-- SNCA alone does NOT rank high in substantia nigra (rank 38 of 43) even
-  after fixing the region-resolution problem. The full 9-gene PD average
-  does show up enriched there, and that result holds under the spatial null.
-  I think this means single-gene expression level isn't the same thing as
-  disease relevance - SNCA's role in PD is about protein aggregation in
-  dopaminergic neurons, not necessarily about that region having the highest
-  raw SNCA transcript count in a healthy brain. Worth being upfront that the
-  validation checkpoint, as originally planned, doesn't cleanly pass.
-- AHBA is only 6 donors and skews older/male. Small reference for a
-  lifespan-disease question, and 5 of the 31 risk genes weren't in the AHBA
-  data at all (probe coverage gaps, not a lookup bug) - notably CR1, an
-  actual well-established AD gene.
-- HD is monogenic, so there isn't really a "risk GWAS" for it like PD/AD
-  have - I used a progression-modifier GWAS in confirmed HTT carriers
-  instead and added HTT itself by hand (see `fetch_gwas_genes.py`).
-- Three of the 31 genes the pipeline picked out (FNTAP1, PMS2P1, ATG3P1) are
-  pseudogene annotations, not real protein-coding genes. Left them in rather
-  than hand-fixing the list after seeing results - that would be exactly the
-  kind of after-the-fact tuning this project is trying to avoid.
-- Correlation, not causation. Genes being expressed where damage happens
-  doesn't mean they cause the damage there.
-- Only tested one direction (enrichment) with one statistic (target region
-  mean minus rest-of-brain mean). Didn't explore whether a different summary
-  statistic or gene-weighting scheme changes the Huntington's result.
+## AI assistance
 
-## Status
-
-Full pipeline run on real data, results and figures in `results/`, writeup
-in `report/report_draft.md`. Not pushed to GitHub yet.
+Most of the code and documentation in this repository was written with
+Claude, an AI assistant made by Anthropic, working from the author's project
+plan and decisions. Commits it helped write carry a `Co-Authored-By: Claude`
+line. The v2 rebuild followed an external methods review of v1. Competition
+papers, abstracts and posters based on this project are written separately
+by the author.

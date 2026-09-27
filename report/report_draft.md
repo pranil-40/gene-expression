@@ -2,6 +2,28 @@
 
 Pranil
 
+> **Status, 2026-09-25: this draft describes the v1 analysis. Several of its
+> claims no longer hold after the v2 revision.** See `docs/v2_results.md`
+> for current numbers and `docs/revision_log.md` for what changed.
+>
+> - The v1 "substantia nigra" region was mostly other tissue: 16 of its 63
+>   samples were labelled substantia nigra. Under anatomically labelled pars
+>   compacta, the Parkinson's result is not significant (spatial p = 0.145,
+>   gene-set p = 0.221).
+> - The SNCA checkpoint reproduces the published result (pars compacta 1st
+>   of 103 structures) using raw expression. The protein-versus-mRNA
+>   explanation in section 4 is withdrawn. The v1 mismatch came from the
+>   region definition and abagen's within-sample normalization.
+> - The donors are 24 to 57 years old (5 male, 1 female), so they aren't an
+>   "older" cohort.
+> - CR1 has probes but fails the intensity filter. It isn't a probe coverage
+>   gap.
+> - Huntington's is now a separate exploratory analysis.
+> - Cohen's d is replaced by a descriptive regional contrast z.
+>
+> The v1 text is also archived unchanged at
+> `archive/v1_exploratory/report_draft_v1.md`.
+
 ## 1. Research question
 
 Parkinson's kills the substantia nigra. Alzheimer's begins in the entorhinal

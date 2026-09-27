@@ -1,0 +1,10 @@
+gene,locus_rank,locus_id,lead_snp,pvalue,mapping_basis,source
+FAN1,1,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+MSH3,2,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+MLH1,3,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+PMS1,4,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+PMS2,5,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+LIG1,6,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+RRM2B,7,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+TCERG1,8,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+CCDC82,9,,,,named by source paper,"GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"

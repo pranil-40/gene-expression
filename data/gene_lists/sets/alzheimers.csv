@@ -1,0 +1,11 @@
+gene,locus_rank,locus_id,lead_snp,pvalue,mapping_basis,source
+BIN1,1.0,chr2:127135234,rs6733839,5.9999999999999995e-118,nearest protein-coding gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+EED,2.0,chr11:86157598,rs3851179,3e-48,nearest protein-coding gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+CR1,3.0,chr1:207577223,rs679515,7e-46,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+CLU,4.0,chr8:27607795,rs11787077,2e-44,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+MS4A4A,5.0,chr11:60254475,rs1582763,4e-42,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+ABCA7,6.0,chr19:1050875,rs12151021,2e-37,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+TREM2,7.0,chr6:41161514,rs75932628,3e-37,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+SPDYE3,8.0,chr7:100334426,rs7384878,1e-26,nearest protein-coding gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+APH1B,9.0,chr15:63277703,rs117618017,2e-25,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"
+PTK2B,11.0,chr8:27362470,rs73223431,4e-22,lead variant inside gene,"Bellenguez et al. 2022, Nature Genetics 54:412-436"

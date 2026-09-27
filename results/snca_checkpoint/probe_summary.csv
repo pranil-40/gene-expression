@@ -1,0 +1,3 @@
+probe_id,probe_name,n_structures,snc_rank,snr_rank,corr_with_abagen_probe
+1010655,A_32_P109653,103,4,86,0.9437
+1020182,A_23_P29939,103,1,81,1.0

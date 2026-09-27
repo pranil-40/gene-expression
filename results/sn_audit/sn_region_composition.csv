@@ -1,0 +1,297 @@
+atlas,region,sample_label,n_samples,n_donors
+left_dk,brainstem,"spinal trigeminal nucleus, left",29,5
+left_dk,brainstem,"pontine nuclei, left",28,5
+left_dk,brainstem,"inferior olivary complex, left",19,5
+left_dk,brainstem,"arcuate nucleus of medulla, left",16,5
+left_dk,brainstem,"gigantocellular group, left",16,5
+left_dk,brainstem,"vestibular nuclei, left",15,5
+left_dk,brainstem,"pontine reticular formation, left",14,5
+left_dk,brainstem,"cuneate nucleus, left",13,5
+left_dk,brainstem,"pontine nuclei, right",12,2
+left_dk,brainstem,"lateral medullary reticular group, left",12,5
+left_dk,brainstem,"central gray substance of midbrain, left",11,3
+left_dk,brainstem,"spinal trigeminal nucleus, right",11,2
+left_dk,brainstem,"superior olivary complex, left",10,4
+left_dk,brainstem,"facial motor nucleus, left",9,4
+left_dk,brainstem,"central medullary reticular group, left",9,4
+left_dk,brainstem,"substantia nigra, pars compacta, left",9,5
+left_dk,brainstem,"ventral tegmental area, left",9,5
+left_dk,brainstem,"hypoglossal nucleus, left",8,3
+left_dk,brainstem,"dorsal motor nucleus of the vagus, left",8,4
+left_dk,brainstem,"inferior olivary complex, right",8,2
+left_dk,brainstem,"pontine reticular formation, right",7,2
+left_dk,brainstem,"locus ceruleus, left",7,3
+left_dk,brainstem,"nucleus subceruleus, left",7,4
+left_dk,brainstem,"vestibular nuclei, right",7,2
+left_dk,brainstem,"substantia nigra, pars reticulata, left",7,4
+left_dk,brainstem,"lateral medullary reticular group, right",7,2
+left_dk,brainstem,"cuneate nucleus, right",6,2
+left_dk,brainstem,"red nucleus, left",6,3
+left_dk,brainstem,"dorsal motor nucleus of the vagus, right",6,2
+left_dk,brainstem,"cochlear nuclei, left",6,4
+left_dk,brainstem,"subcuneiform nucleus, left",6,5
+left_dk,brainstem,"central gray substance of midbrain, right",6,2
+left_dk,brainstem,"central medullary reticular group, right",6,2
+left_dk,brainstem,"motor nucleus of trigeminal nerve, left",6,4
+left_dk,brainstem,"superior olivary complex, right",5,2
+left_dk,brainstem,"abducens nucleus, left",5,4
+left_dk,brainstem,"cuneiform nucleus, left",5,3
+left_dk,brainstem,"inferior colliculus, left",5,3
+left_dk,brainstem,"medial parabrachial nucleus, left",5,4
+left_dk,brainstem,"hypoglossal nucleus, right",5,2
+left_dk,brainstem,"arcuate nucleus of medulla, right",5,2
+left_dk,brainstem,"gigantocellular group, right",5,2
+left_dk,brainstem,"substantia nigra, pars compacta, right",5,2
+left_dk,brainstem,"substantia nigra, pars reticulata, right",5,2
+left_dk,brainstem,"superior colliculus, left",4,3
+left_dk,brainstem,"lateral parabrachial nucleus, left",4,3
+left_dk,brainstem,"nucleus subceruleus, right",4,2
+left_dk,brainstem,"locus ceruleus, right",4,2
+left_dk,brainstem,"medial parabrachial nucleus,right",3,2
+left_dk,brainstem,"ventral tegmental area, right",3,2
+left_dk,brainstem,"facial motor nucleus, right",3,2
+left_dk,brainstem,"subcuneiform nucleus, right",3,2
+left_dk,brainstem,"trochlear nucleus, left",3,2
+left_dk,brainstem,"pontine raphe nucleus, left",3,2
+left_dk,brainstem,"abducens nucleus, right",3,2
+left_dk,brainstem,"red nucleus, right",3,2
+left_dk,brainstem,"cuneiform nucleus, right",2,1
+left_dk,brainstem,"principal sensory nucleus of trigeminal nerve, left",2,1
+left_dk,brainstem,"gracile nucleus, right",2,1
+left_dk,brainstem,"trochlear nucleus, right",2,2
+left_dk,brainstem,"oculomotor nuclear complex, right",2,2
+left_dk,brainstem,"midbrain reticular formation, right",2,1
+left_dk,brainstem,"midbrain reticular formation, left",2,1
+left_dk,brainstem,"lateral parabrachial nucleus, right",2,1
+left_dk,brainstem,"motor nucleus of trigeminal nerve, right",2,2
+left_dk,brainstem,"medial group of nuclei, right",2,1
+left_dk,brainstem,"caudal group of intralaminar nuclei, right",2,1
+left_dk,brainstem,"principal sensory nucleus of trigeminal nerve, right",2,2
+left_dk,brainstem,"posterior group of nuclei, right",1,1
+left_dk,brainstem,"medial geniculate complex, right",1,1
+left_dk,brainstem,"paraventricular nuclei, left of thalamus, left",1,1
+left_dk,brainstem,"oculomotor nuclear complex, left",1,1
+left_dk,brainstem,"superior colliculus, right",1,1
+left_dk,brainstem,"interstitial nucleus of Cajal, left",1,1
+left_dk,brainstem,"nucleus of Darkschewitsch, left",1,1
+left_dk,brainstem,"Edinger-Westphal nucleus, left",1,1
+left_dk,brainstem,"central gray of the pons, right",1,1
+left_dk,brainstem,"central gray of the pons, left",1,1
+left_dk,brainstem,"gracile nucleus, left",1,1
+left_dk,brainstem,"midbrain raphe nuclei, left",1,1
+left_dk,entorhinal,"parahippocampal gyrus, left, bank of the cos",8,5
+left_dk,entorhinal,"parahippocampal gyrus, left, lateral bank of gyrus",6,5
+left_dk,entorhinal,"fusiform gyrus, left, bank of cos",1,1
+left_dk,caudate,"head of caudate nucleus, left",20,6
+left_dk,caudate,"body of caudate nucleus, left",17,6
+left_dk,caudate,"bed  nucleus of stria terminalis, left",4,4
+left_dk,caudate,"nucleus accumbens, left",3,3
+left_dk,caudate,"nucleus of the diagonal band, left, horizontal division",1,1
+left_dk,caudate,"septal nuclei, left",1,1
+left_dk,caudate,"preoptic region, left",1,1
+left_dk,putamen,"putamen, left",37,6
+left_dk,putamen,"claustrum, left",14,3
+left_dk,putamen,"basal nucleus of meynert, left",5,3
+left_dk,putamen,"globus pallidus, external segment, left",4,3
+left_dk,putamen,"nucleus of the diagonal band, left, vertical division",3,3
+left_dk,putamen,"olfactory tubercle, left",3,3
+left_dk,putamen,"central nucleus, left",3,2
+left_dk,putamen,"basomedial nucleus, left",2,2
+left_dk,putamen,"zona incerta, left",1,1
+left_dk,putamen,"dorsal lateral geniculate nucleus, left",1,1
+left_dk,putamen,"subthalamic nucleus, left",1,1
+left_dk,putamen,"reticular nucleus of thalamus, left",1,1
+left_dk,putamen,"cortico-medial group, left",1,1
+left_dk,putamen,"supraoptic nucleus, left",1,1
+left_cit168,brainstem,"spinal trigeminal nucleus, left",29,5
+left_cit168,brainstem,"pontine nuclei, left",28,5
+left_cit168,brainstem,"inferior olivary complex, left",19,5
+left_cit168,brainstem,"arcuate nucleus of medulla, left",16,5
+left_cit168,brainstem,"gigantocellular group, left",16,5
+left_cit168,brainstem,"vestibular nuclei, left",15,5
+left_cit168,brainstem,"pontine reticular formation, left",14,5
+left_cit168,brainstem,"cuneate nucleus, left",13,5
+left_cit168,brainstem,"pontine nuclei, right",12,2
+left_cit168,brainstem,"lateral medullary reticular group, left",12,5
+left_cit168,brainstem,"spinal trigeminal nucleus, right",11,2
+left_cit168,brainstem,"central gray substance of midbrain, left",11,3
+left_cit168,brainstem,"superior olivary complex, left",10,4
+left_cit168,brainstem,"facial motor nucleus, left",9,4
+left_cit168,brainstem,"central medullary reticular group, left",9,4
+left_cit168,brainstem,"ventral tegmental area, left",9,5
+left_cit168,brainstem,"inferior olivary complex, right",8,2
+left_cit168,brainstem,"substantia nigra, pars compacta, left",8,5
+left_cit168,brainstem,"dorsal motor nucleus of the vagus, left",8,4
+left_cit168,brainstem,"hypoglossal nucleus, left",8,3
+left_cit168,brainstem,"vestibular nuclei, right",7,2
+left_cit168,brainstem,"pontine reticular formation, right",7,2
+left_cit168,brainstem,"locus ceruleus, left",7,3
+left_cit168,brainstem,"nucleus subceruleus, left",7,4
+left_cit168,brainstem,"lateral medullary reticular group, right",7,2
+left_cit168,brainstem,"subcuneiform nucleus, left",6,5
+left_cit168,brainstem,"cuneate nucleus, right",6,2
+left_cit168,brainstem,"dorsal motor nucleus of the vagus, right",6,2
+left_cit168,brainstem,"central medullary reticular group, right",6,2
+left_cit168,brainstem,"cochlear nuclei, left",6,4
+left_cit168,brainstem,"central gray substance of midbrain, right",6,2
+left_cit168,brainstem,"substantia nigra, pars reticulata, left",6,4
+left_cit168,brainstem,"motor nucleus of trigeminal nerve, left",6,4
+left_cit168,brainstem,"arcuate nucleus of medulla, right",5,2
+left_cit168,brainstem,"superior olivary complex, right",5,2
+left_cit168,brainstem,"abducens nucleus, left",5,4
+left_cit168,brainstem,"cuneiform nucleus, left",5,3
+left_cit168,brainstem,"inferior colliculus, left",5,3
+left_cit168,brainstem,"medial parabrachial nucleus, left",5,4
+left_cit168,brainstem,"hypoglossal nucleus, right",5,2
+left_cit168,brainstem,"gigantocellular group, right",5,2
+left_cit168,brainstem,"red nucleus, left",5,2
+left_cit168,brainstem,"substantia nigra, pars compacta, right",5,2
+left_cit168,brainstem,"substantia nigra, pars reticulata, right",5,2
+left_cit168,brainstem,"superior colliculus, left",4,3
+left_cit168,brainstem,"locus ceruleus, right",4,2
+left_cit168,brainstem,"nucleus subceruleus, right",4,2
+left_cit168,brainstem,"lateral parabrachial nucleus, left",4,3
+left_cit168,brainstem,"pontine raphe nucleus, left",3,2
+left_cit168,brainstem,"red nucleus, right",3,2
+left_cit168,brainstem,"ventral tegmental area, right",3,2
+left_cit168,brainstem,"abducens nucleus, right",3,2
+left_cit168,brainstem,"facial motor nucleus, right",3,2
+left_cit168,brainstem,"medial parabrachial nucleus,right",3,2
+left_cit168,brainstem,"subcuneiform nucleus, right",3,2
+left_cit168,brainstem,"trochlear nucleus, left",3,2
+left_cit168,brainstem,"gracile nucleus, right",2,1
+left_cit168,brainstem,"principal sensory nucleus of trigeminal nerve, left",2,1
+left_cit168,brainstem,"cuneiform nucleus, right",2,1
+left_cit168,brainstem,"trochlear nucleus, right",2,2
+left_cit168,brainstem,"oculomotor nuclear complex, right",2,2
+left_cit168,brainstem,"midbrain reticular formation, right",2,1
+left_cit168,brainstem,"midbrain reticular formation, left",2,1
+left_cit168,brainstem,"lateral parabrachial nucleus, right",2,1
+left_cit168,brainstem,"motor nucleus of trigeminal nerve, right",2,2
+left_cit168,brainstem,"medial group of nuclei, right",2,1
+left_cit168,brainstem,"caudal group of intralaminar nuclei, right",2,1
+left_cit168,brainstem,"principal sensory nucleus of trigeminal nerve, right",2,2
+left_cit168,brainstem,"posterior group of nuclei, right",1,1
+left_cit168,brainstem,"medial geniculate complex, right",1,1
+left_cit168,brainstem,"paraventricular nuclei, left of thalamus, left",1,1
+left_cit168,brainstem,"oculomotor nuclear complex, left",1,1
+left_cit168,brainstem,"superior colliculus, right",1,1
+left_cit168,brainstem,"interstitial nucleus of Cajal, left",1,1
+left_cit168,brainstem,"nucleus of Darkschewitsch, left",1,1
+left_cit168,brainstem,"Edinger-Westphal nucleus, left",1,1
+left_cit168,brainstem,"central gray of the pons, right",1,1
+left_cit168,brainstem,"central gray of the pons, left",1,1
+left_cit168,brainstem,"gracile nucleus, left",1,1
+left_cit168,brainstem,"midbrain raphe nuclei, left",1,1
+left_cit168,substantia_nigra_pc,"red nucleus, left",2,2
+left_cit168,substantia_nigra_pc,"lateral hypothalamic area, mammillary region, left",1,1
+left_cit168,substantia_nigra_pc,"ventral tegmental area, left",1,1
+left_cit168,substantia_nigra_pc,"substantia nigra, pars compacta, left",1,1
+left_cit168,substantia_nigra_pc,"substantia nigra, pars reticulata, left",1,1
+left_cit168,substantia_nigra_pr,"substantia nigra, pars compacta, left",3,3
+left_cit168,substantia_nigra_pr,"arcuate nucleus of the hypothalamus, left",1,1
+left_cit168,substantia_nigra_pr,"ventromedial hypothalamic nucleus, left",1,1
+left_cit168,substantia_nigra_pr,"supraoptic nucleus, left",1,1
+left_cit168,substantia_nigra_pr,"mammillary body, left",1,1
+left_cit168,substantia_nigra_pr,"ventral tegmental area, left",1,1
+left_cit168,substantia_nigra_pc_R,"arcuate nucleus of the hypothalamus, right",1,1
+left_cit168,substantia_nigra_pr_R,"red nucleus, right",1,1
+left_cit168,substantia_nigra_pr_R,"lateral hypothalamic area, mammillary region, right",1,1
+left_sn6mm,brainstem,"spinal trigeminal nucleus, left",29,5
+left_sn6mm,brainstem,"inferior olivary complex, left",19,5
+left_sn6mm,brainstem,"pontine nuclei, left",19,5
+left_sn6mm,brainstem,"gigantocellular group, left",16,5
+left_sn6mm,brainstem,"arcuate nucleus of medulla, left",16,5
+left_sn6mm,brainstem,"vestibular nuclei, left",15,5
+left_sn6mm,brainstem,"cuneate nucleus, left",13,5
+left_sn6mm,brainstem,"pontine reticular formation, left",12,5
+left_sn6mm,brainstem,"lateral medullary reticular group, left",12,5
+left_sn6mm,brainstem,"spinal trigeminal nucleus, right",11,2
+left_sn6mm,brainstem,"superior olivary complex, left",10,4
+left_sn6mm,brainstem,"facial motor nucleus, left",9,4
+left_sn6mm,brainstem,"pontine nuclei, right",9,2
+left_sn6mm,brainstem,"central medullary reticular group, left",9,4
+left_sn6mm,brainstem,"hypoglossal nucleus, left",8,3
+left_sn6mm,brainstem,"inferior olivary complex, right",8,2
+left_sn6mm,brainstem,"dorsal motor nucleus of the vagus, left",8,4
+left_sn6mm,brainstem,"nucleus subceruleus, left",7,4
+left_sn6mm,brainstem,"lateral medullary reticular group, right",7,2
+left_sn6mm,brainstem,"pontine reticular formation, right",7,2
+left_sn6mm,brainstem,"vestibular nuclei, right",7,2
+left_sn6mm,brainstem,"locus ceruleus, left",6,3
+left_sn6mm,brainstem,"dorsal motor nucleus of the vagus, right",6,2
+left_sn6mm,brainstem,"cochlear nuclei, left",6,4
+left_sn6mm,brainstem,"motor nucleus of trigeminal nerve, left",6,4
+left_sn6mm,brainstem,"cuneate nucleus, right",6,2
+left_sn6mm,brainstem,"central medullary reticular group, right",6,2
+left_sn6mm,brainstem,"abducens nucleus, left",5,4
+left_sn6mm,brainstem,"arcuate nucleus of medulla, right",5,2
+left_sn6mm,brainstem,"gigantocellular group, right",5,2
+left_sn6mm,brainstem,"hypoglossal nucleus, right",5,2
+left_sn6mm,brainstem,"medial parabrachial nucleus, left",5,4
+left_sn6mm,brainstem,"central gray substance of midbrain, left",5,3
+left_sn6mm,brainstem,"superior olivary complex, right",5,2
+left_sn6mm,brainstem,"inferior colliculus, left",4,3
+left_sn6mm,brainstem,"central gray substance of midbrain, right",4,2
+left_sn6mm,brainstem,"lateral parabrachial nucleus, left",4,3
+left_sn6mm,brainstem,"nucleus subceruleus, right",4,2
+left_sn6mm,brainstem,"locus ceruleus, right",4,2
+left_sn6mm,brainstem,"subcuneiform nucleus, left",3,3
+left_sn6mm,brainstem,"cuneiform nucleus, left",3,2
+left_sn6mm,brainstem,"pontine raphe nucleus, left",3,2
+left_sn6mm,brainstem,"abducens nucleus, right",3,2
+left_sn6mm,brainstem,"facial motor nucleus, right",3,2
+left_sn6mm,brainstem,"medial parabrachial nucleus,right",3,2
+left_sn6mm,brainstem,"motor nucleus of trigeminal nerve, right",2,2
+left_sn6mm,brainstem,"medial group of nuclei, right",2,1
+left_sn6mm,brainstem,"superior colliculus, left",2,2
+left_sn6mm,brainstem,"gracile nucleus, right",2,1
+left_sn6mm,brainstem,"principal sensory nucleus of trigeminal nerve, right",2,2
+left_sn6mm,brainstem,"principal sensory nucleus of trigeminal nerve, left",2,1
+left_sn6mm,brainstem,"central gray of the pons, left",1,1
+left_sn6mm,brainstem,"cuneiform nucleus, right",1,1
+left_sn6mm,brainstem,"ventral tegmental area, right",1,1
+left_sn6mm,brainstem,"central gray of the pons, right",1,1
+left_sn6mm,brainstem,"caudal group of intralaminar nuclei, right",1,1
+left_sn6mm,brainstem,"red nucleus, left",1,1
+left_sn6mm,brainstem,"gracile nucleus, left",1,1
+left_sn6mm,brainstem,"paraventricular nuclei, left of thalamus, left",1,1
+left_sn6mm,brainstem,"oculomotor nuclear complex, left",1,1
+left_sn6mm,brainstem,"oculomotor nuclear complex, right",1,1
+left_sn6mm,brainstem,"lateral parabrachial nucleus, right",1,1
+left_sn6mm,brainstem,"midbrain reticular formation, right",1,1
+left_sn6mm,brainstem,"ventral tegmental area, left",1,1
+left_sn6mm,brainstem,"midbrain raphe nuclei, left",1,1
+left_sn6mm,substantia_nigra_6mm,"pontine nuclei, left",9,4
+left_sn6mm,substantia_nigra_6mm,"substantia nigra, pars compacta, left",9,5
+left_sn6mm,substantia_nigra_6mm,"ventral tegmental area, left",8,5
+left_sn6mm,substantia_nigra_6mm,"substantia nigra, pars reticulata, left",7,4
+left_sn6mm,substantia_nigra_6mm,"central gray substance of midbrain, left",6,3
+left_sn6mm,substantia_nigra_6mm,"red nucleus, left",5,3
+left_sn6mm,substantia_nigra_6mm,"trochlear nucleus, left",3,2
+left_sn6mm,substantia_nigra_6mm,"subcuneiform nucleus, left",3,2
+left_sn6mm,substantia_nigra_6mm,"pontine reticular formation, left",2,2
+left_sn6mm,substantia_nigra_6mm,"midbrain reticular formation, left",2,1
+left_sn6mm,substantia_nigra_6mm,"superior colliculus, left",2,1
+left_sn6mm,substantia_nigra_6mm,"cuneiform nucleus, left",2,1
+left_sn6mm,substantia_nigra_6mm,"inferior colliculus, left",1,1
+left_sn6mm,substantia_nigra_6mm,"Edinger-Westphal nucleus, left",1,1
+left_sn6mm,substantia_nigra_6mm,"interstitial nucleus of Cajal, left",1,1
+left_sn6mm,substantia_nigra_6mm,"nucleus of Darkschewitsch, left",1,1
+left_sn6mm,substantia_nigra_6mm,"locus ceruleus, left",1,1
+left_sn6mm,substantia_nigra_6mm_R,"substantia nigra, pars reticulata, right",5,2
+left_sn6mm,substantia_nigra_6mm_R,"substantia nigra, pars compacta, right",5,2
+left_sn6mm,substantia_nigra_6mm_R,"red nucleus, right",3,2
+left_sn6mm,substantia_nigra_6mm_R,"pontine nuclei, right",3,2
+left_sn6mm,substantia_nigra_6mm_R,"subcuneiform nucleus, right",3,2
+left_sn6mm,substantia_nigra_6mm_R,"central gray substance of midbrain, right",2,2
+left_sn6mm,substantia_nigra_6mm_R,"ventral tegmental area, right",2,2
+left_sn6mm,substantia_nigra_6mm_R,"trochlear nucleus, right",2,2
+left_sn6mm,substantia_nigra_6mm_R,"caudal group of intralaminar nuclei, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"midbrain reticular formation, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"lateral parabrachial nucleus, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"posterior group of nuclei, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"superior colliculus, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"cuneiform nucleus, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"oculomotor nuclear complex, right",1,1
+left_sn6mm,substantia_nigra_6mm_R,"medial geniculate complex, right",1,1

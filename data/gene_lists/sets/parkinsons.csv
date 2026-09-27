@@ -1,0 +1,11 @@
+gene,locus_rank,locus_id,lead_snp,pvalue,mapping_basis,source
+SNCA,1.0,chr4:89704960,rs356182,4e-154,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+LRRK2,2.0,chr12:40340400,rs34637584,4e-148,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+KRTCAP2,3.0,chr1:155162560,rs35749011,2e-70,nearest protein-coding gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+TMEM175,4.0,chr4:958159,rs34311866,1e-69,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+CRHR1,5.0,chr17:45666837,rs62053943,4e-68,nearest protein-coding gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+NSF,6.0,chr17:46723580,rs199453,8.999999999999999e-67,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+STK39,7.0,chr2:168253884,rs1474055,2.9999999999999996e-39,nearest protein-coding gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+HIP1R,8.0,chr12:122842051,rs10847864,1e-37,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+MCCC1,9.0,chr3:183042285,rs10513789,1e-34,lead variant inside gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+NUCKS1,10.0,chr1:205754444,rs823118,1e-29,nearest protein-coding gene,"Nalls et al. 2019, Lancet Neurology 18:1091-1102"

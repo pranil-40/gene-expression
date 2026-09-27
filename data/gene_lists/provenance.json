@@ -1,0 +1,58 @@
+{
+  "accessed": "2026-09-24",
+  "gwas_catalog_release": {
+    "date": "2026-09-13",
+    "associations": "1192604",
+    "ensemblbuild": "-",
+    "dbsnpbuild": "-",
+    "studies": "7817",
+    "snps": "562724",
+    "genebuild": "GRCh38.p14",
+    "sumstats": "201446",
+    "efoversion": "v3.93.0"
+  },
+  "gene_annotation": "GENCODE v50 basic (release date 2026-06-09), protein_coding, readthrough genes excluded",
+  "variant_positions": "Ensembl REST /variation, GRCh38",
+  "ld": "Ensembl REST /ld pairwise, 1000GENOMES:phase_3:EUR",
+  "rules": {
+    "gws_p": 5e-08,
+    "window_bp": 1000000,
+    "ld_r2": 0.1,
+    "ld_fallback_bp": 250000,
+    "top_n": 10
+  },
+  "studies": {
+    "parkinsons": {
+      "accession": "GCST009325",
+      "pubmed_id": "31701892",
+      "citation": "Nalls et al. 2019, Lancet Neurology 18:1091-1102"
+    },
+    "alzheimers": {
+      "accession": "GCST90027158",
+      "pubmed_id": "35379992",
+      "citation": "Bellenguez et al. 2022, Nature Genetics 54:412-436"
+    }
+  },
+  "hand_entered_sets": {
+    "huntingtons_htt": {
+      "genes": [
+        "HTT"
+      ],
+      "source": "HTT CAG-repeat expansion causes HD (Huntington's Disease Collaborative Research Group 1993, Cell 72:971-983)"
+    },
+    "huntingtons_modifiers": {
+      "genes": [
+        "FAN1",
+        "MSH3",
+        "MLH1",
+        "PMS1",
+        "PMS2",
+        "LIG1",
+        "RRM2B",
+        "TCERG1",
+        "CCDC82"
+      ],
+      "source": "GeM-HD Consortium 2019, Cell 178:887-900 (Table 1, age-at-onset modifier loci); gene choices as summarized in Lee et al. 2022, Am J Hum Genet 109:885-899"
+    }
+  }
+}

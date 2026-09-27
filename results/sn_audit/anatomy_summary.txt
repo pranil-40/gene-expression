@@ -1,0 +1,134 @@
+AHBA samples labelled substantia nigra: 52 across 6 donors
+subdivision  SNc  SNr
+donor side           
+10021 L        4    3
+      R        4    6
+12876 L        3    1
+14380 L        3    4
+15496 L        4    4
+15697 L        3    2
+9861  L        4    2
+      R        3    2
+
+kept after abagen's anatomy/coordinate consistency check: 50
+coordinate correction moved samples by 3.0 mm (median), max 7.1 mm
+SN-labelled samples whose corrected coordinate is inside CIT168 SN (p >= 0.5): 2 of 52
+corrected coordinate ranges for SN-labelled samples: x -23 to 25, y -32 to -5, z -29 to -5
+
+[left_dk] where the SN-labelled samples end up:
+side  left_dk                              
+L     brainstem                                16
+      dropped (anatomy/coordinate mismatch)     2
+      hippocampus                               1
+      pallidum                                  1
+      unmatched                                17
+R     brainstem                                10
+      unmatched                                 5
+
+[left_cit168] where the SN-labelled samples end up:
+side  left_cit168                          
+L     brainstem                                14
+      dropped (anatomy/coordinate mismatch)     2
+      hippocampus                               1
+      pallidum                                  1
+      substantia_nigra_pc                       2
+      substantia_nigra_pr                       3
+      unmatched                                14
+R     brainstem                                10
+      unmatched                                 5
+
+[left_sn6mm] where the SN-labelled samples end up:
+side  left_sn6mm                           
+L     dropped (anatomy/coordinate mismatch)     2
+      hippocampus                               1
+      pallidum                                  1
+      substantia_nigra_6mm                     16
+      unmatched                                17
+R     substantia_nigra_6mm_R                   10
+      unmatched                                 5
+
+[left_cit168] substantia_nigra_pc: 6 samples, 2 labelled SN; top labels:
+                                      sample_label  n_samples  n_donors
+                                 red nucleus, left          2         2
+lateral hypothalamic area, mammillary region, left          1         1
+                      ventral tegmental area, left          1         1
+             substantia nigra, pars compacta, left          1         1
+           substantia nigra, pars reticulata, left          1         1
+
+[left_cit168] substantia_nigra_pc_R: 1 samples, 0 labelled SN; top labels:
+                              sample_label  n_samples  n_donors
+arcuate nucleus of the hypothalamus, right          1         1
+
+[left_cit168] substantia_nigra_pr: 8 samples, 3 labelled SN; top labels:
+                             sample_label  n_samples  n_donors
+    substantia nigra, pars compacta, left          3         3
+arcuate nucleus of the hypothalamus, left          1         1
+  ventromedial hypothalamic nucleus, left          1         1
+                 supraoptic nucleus, left          1         1
+                    mammillary body, left          1         1
+             ventral tegmental area, left          1         1
+
+[left_cit168] substantia_nigra_pr_R: 2 samples, 0 labelled SN; top labels:
+                                       sample_label  n_samples  n_donors
+                                 red nucleus, right          1         1
+lateral hypothalamic area, mammillary region, right          1         1
+
+[left_sn6mm] substantia_nigra_6mm: 63 samples, 16 labelled SN; top labels:
+                            sample_label  n_samples  n_donors
+                    pontine nuclei, left          9         4
+   substantia nigra, pars compacta, left          9         5
+            ventral tegmental area, left          8         5
+ substantia nigra, pars reticulata, left          7         4
+central gray substance of midbrain, left          6         3
+                       red nucleus, left          5         3
+                 trochlear nucleus, left          3         2
+              subcuneiform nucleus, left          3         2
+
+[left_sn6mm] substantia_nigra_6mm_R: 33 samples, 10 labelled SN; top labels:
+                             sample_label  n_samples  n_donors
+ substantia nigra, pars reticulata, right          5         2
+   substantia nigra, pars compacta, right          5         2
+                       red nucleus, right          3         2
+                    pontine nuclei, right          3         2
+              subcuneiform nucleus, right          3         2
+central gray substance of midbrain, right          2         2
+            ventral tegmental area, right          2         2
+                 trochlear nucleus, right          2         2
+
+[left_dk] entorhinal: 15 samples; top anatomical labels:
+                                      sample_label  n_samples  n_donors
+      parahippocampal gyrus, left, bank of the cos          8         5
+parahippocampal gyrus, left, lateral bank of gyrus          6         5
+                 fusiform gyrus, left, bank of cos          1         1
+
+[left_dk] caudate: 47 samples; top anatomical labels:
+                                           sample_label  n_samples  n_donors
+                          head of caudate nucleus, left         20         6
+                          body of caudate nucleus, left         17         6
+                 bed  nucleus of stria terminalis, left          4         4
+                                nucleus accumbens, left          3         3
+nucleus of the diagonal band, left, horizontal division          1         1
+                                    septal nuclei, left          1         1
+                                  preoptic region, left          1         1
+
+[left_dk] putamen: 77 samples; top anatomical labels:
+                                         sample_label  n_samples  n_donors
+                                        putamen, left         37         6
+                                      claustrum, left         14         3
+                       basal nucleus of meynert, left          5         3
+              globus pallidus, external segment, left          4         3
+nucleus of the diagonal band, left, vertical division          3         3
+                             olfactory tubercle, left          3         3
+                                central nucleus, left          3         2
+                             basomedial nucleus, left          2         2
+
+[left_dk] brainstem: 482 samples; top anatomical labels:
+                     sample_label  n_samples  n_donors
+  spinal trigeminal nucleus, left         29         5
+             pontine nuclei, left         28         5
+   inferior olivary complex, left         19         5
+      gigantocellular group, left         16         5
+ arcuate nucleus of medulla, left         16         5
+          vestibular nuclei, left         15         5
+pontine reticular formation, left         14         5
+            cuneate nucleus, left         13         5

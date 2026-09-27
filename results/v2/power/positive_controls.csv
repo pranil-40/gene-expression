@@ -1,0 +1,3 @@
+kind,gene_set,region_definition,normalization,n_genes_requested,n_genes_used,genes_missing_from_ahba,targets,T,z,target_mean,reference_mean,reference_sd,best_target_rank,n_regions,p_spatial,p_geneset,mean_intergene_corr,camera_z,p_camera,donors_eligible,donors_positive
+positive control,pc_dopaminergic,dk_ontology_sn,default,10,8,EN1;LMX1B,substantia_nigra_pc,0.47766528,7.540359,0.9156845,0.43801925,0.06334782,1,44,0.0011998800119988001,9.999000099990002e-05,0.394259342754918,2.8652246688252334,0.0020835673761164797,6,6
+positive control,pc_striatal_msn,dk_ontology_sn,default,10,9,ADORA2A,caudate;putamen,0.38325766,7.36767,0.8545812,0.47132352,0.05201884,1,44,0.00019998000199980003,9.999000099990002e-05,0.3143872522866722,3.186339662845141,0.0007204266378133539,6,6

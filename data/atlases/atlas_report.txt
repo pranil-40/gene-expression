@@ -1,0 +1,32 @@
+
+[left_dk] 42 regions
+  id   5 entorhinal                   L    1953 voxels
+  id  36 caudate                      L    5877 voxels
+  id  37 putamen                      L    8310 voxels
+  id  41 amygdala                     L    3189 voxels
+  id  83 brainstem                    B   31021 voxels
+
+CIT168 SN voxels (p_SNc + p_SNr >= 0.50): 915
+  DK label underneath them: unlabelled=856, brainstem=59
+
+[left_cit168] 46 regions
+  id   5 entorhinal                   L    1953 voxels
+  id  36 caudate                      L    5877 voxels
+  id  37 putamen                      L    8310 voxels
+  id  41 amygdala                     L    3189 voxels
+  id  83 brainstem                    B   30962 voxels
+  id 101 substantia_nigra_pc          L     149 voxels
+  id 102 substantia_nigra_pr          L     302 voxels
+  id 103 substantia_nigra_pc_R        R     148 voxels
+  id 104 substantia_nigra_pr_R        R     316 voxels
+
+[left_sn6mm] 44 regions
+  id   5 entorhinal                   L    1953 voxels
+  id  36 caudate                      L    5877 voxels
+  id  37 putamen                      L    8310 voxels
+  id  41 amygdala                     L    3189 voxels
+  id  83 brainstem                    B   23357 voxels
+  id 105 substantia_nigra_6mm         L    3940 voxels
+  id 106 substantia_nigra_6mm_R       R    3724 voxels
+
+6 mm mask built from 52 AHBA SN sample coordinates (7664 of 31021 brainstem voxels, 25%)

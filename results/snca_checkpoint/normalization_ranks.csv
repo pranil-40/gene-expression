@@ -1,0 +1,5 @@
+label,snc_rank,snr_rank,n_regions
+no normalization,3,39,44
+gene SRS only,3,39,44
+sample SRS only,21,39,44
+both (abagen default),20,40,44

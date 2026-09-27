@@ -1,0 +1,5 @@
+gene_set,targets,n_genes_used,genes_missing_from_gtex,T,p_geneset,n_tissues,target_rank_of_mean_z
+parkinsons,Brain_Substantia_nigra,10,,-0.19323112385768987,0.3100689931006899,13,8
+parkinsons_all_gws,Brain_Substantia_nigra,91,TRIM40,-0.24453176692317846,0.22907709229077092,13,9
+huntingtons_htt,Brain_Caudate_basal_ganglia;Brain_Putamen_basal_ganglia,1,,-0.7677040664046294,0.657034296570343,13,9
+huntingtons_modifiers,Brain_Caudate_basal_ganglia;Brain_Putamen_basal_ganglia,9,,-0.8280860488622726,0.9646035396460354,13,9

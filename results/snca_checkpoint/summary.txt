@@ -1,0 +1,39 @@
+SNCA checkpoint (target: Liscovitch & French 2014, SNc 2/105, SNr 88/105)
+
+A  all Allen SNCA probes, raw log2: 103 left structures in all 6 donors; SNc rank 1, SNr rank 80 -> reproduced
+B  abagen-selected probe, raw log2: 92 left structures in all 6 donors; SNc rank 1, SNr rank 74 -> reproduced
+C  v2 region matrix (dk_ontology_sn, SRS-normalized): SNc rank 20 of 44, SNr rank 40 of 44
+
+post hoc: SNc rank for SNCA in the v2 region matrix under each normalization step
+                label  snc_rank  snr_rank  n_regions
+     no normalization         3        39         44
+        gene SRS only         3        39         44
+      sample SRS only        21        39         44
+both (abagen default)        20        40         44
+
+per-probe (raw log2):
+ probe_id   probe_name  n_structures  snc_rank  snr_rank  corr_with_abagen_probe
+  1010655 A_32_P109653           103         4        86                  0.9437
+  1020182  A_23_P29939           103         1        81                  1.0000
+
+donor-level SNc vs SNr (raw log2, probe-averaged):
+donor  snc_n  snr_n  snc_mean  snr_mean  all_samples_mean  snc_minus_snr
+ 9861      4      2    11.213    10.824            10.830          0.388
+10021      4      3    12.398    10.529            11.219          1.869
+12876      3      1    11.785    10.232            11.001          1.552
+14380      3      4    12.495    10.662            11.368          1.833
+15496      4      4    13.088    11.645            11.739          1.443
+15697      3      2    12.449    10.378            11.354          2.071
+
+top 10 structures (A):
+                                                             median_log2  rank
+substantia nigra, pars compacta, left                             12.423     1
+claustrum, left                                                   12.347     2
+short insular gyri, left                                          12.314     3
+cingulate gyrus, frontal part, left, superior bank of gyrus       12.305     4
+fusiform gyrus, left, bank of the its                             12.253     5
+parahippocampal gyrus, left, bank of the cos                      12.245     6
+fusiform gyrus, left, bank of cos                                 12.236     7
+inferior temporal gyrus, left, bank of the its                    12.227     8
+superior temporal gyrus, left, lateral bank of gyrus              12.215     9
+planum polare, left                                               12.206    10

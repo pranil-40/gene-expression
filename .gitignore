@@ -7,11 +7,13 @@ venv/
 
 # Data (large, downloaded, not committed - see README for how to regenerate)
 data/raw/
+data/cache/
 data/abagen-data/
 *.nii
 *.nii.gz
-# small custom atlas built by build_sn_atlas.py, want this one committed
-!data/processed/atlas_with_sn.nii.gz
+# small atlases built by src/build_atlases.py (and the archived v1 one) are committed
+!data/atlases/*.nii.gz
+!archive/v1_exploratory/data/processed/atlas_with_sn.nii.gz
 
 # OS
 .DS_Store

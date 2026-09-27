@@ -1,0 +1,13 @@
+gene_set,region_definition,normalization,donor,eligible,n_target_samples,n_reference_regions,T,z
+pc_dopaminergic,dk_ontology_sn,default,9861,True,4,41,0.4321636,7.41573
+pc_dopaminergic,dk_ontology_sn,default,10021,True,4,41,0.53650385,6.144041
+pc_dopaminergic,dk_ontology_sn,default,12876,True,3,42,0.46188772,5.4184637
+pc_dopaminergic,dk_ontology_sn,default,14380,True,3,42,0.5304462,5.586408
+pc_dopaminergic,dk_ontology_sn,default,15496,True,4,41,0.48405164,6.1294074
+pc_dopaminergic,dk_ontology_sn,default,15697,True,2,42,0.41100845,4.1727133
+pc_striatal_msn,dk_ontology_sn,default,9861,True,24,40,0.37937295,3.9320471
+pc_striatal_msn,dk_ontology_sn,default,10021,True,13,40,0.38218385,3.1853244
+pc_striatal_msn,dk_ontology_sn,default,12876,True,23,41,0.3332156,8.673859
+pc_striatal_msn,dk_ontology_sn,default,14380,True,23,41,0.3915446,9.199575
+pc_striatal_msn,dk_ontology_sn,default,15496,True,20,40,0.41542718,8.713072
+pc_striatal_msn,dk_ontology_sn,default,15697,True,21,41,0.38922048,6.872687
