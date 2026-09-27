@@ -28,6 +28,7 @@ STEPS = [
     ("snca", ["src/snca_checkpoint.py"]),
     ("analysis", ["src/analysis.py"]),
     ("power", ["src/power_check.py"]),       # post hoc, docs/analysis_plan_amendment_1.md
+    ("singlecell", ["src/singlecell.py"]),   # v3, docs/analysis_plan_v3.md (~5.8 GB download)
     ("gtex", ["src/gtex_check.py"]),
     ("figures", ["src/figures.py"]),
 ]

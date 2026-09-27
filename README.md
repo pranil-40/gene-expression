@@ -48,6 +48,27 @@ would have needed a contrast about three times the observed one to pass both
 tests, so the result reads as "no large enrichment". A modest one isn't ruled
 out.
 
+## Result (v3): cell types inside the damaged region
+
+Single-nucleus RNA-seq from the same tissues (Kamath et al. 2022; Siletti et
+al. 2023) asks where the risk genes are expressed within each region
+(`docs/analysis_plan_v3.md`, `docs/v3_results.md`).
+
+| Disease | Tissue | Cell type tested | Rank among cell classes | p | Verdict |
+|---|---|---|---|---|---|
+| Alzheimer's | entorhinal cortex | microglia | 1 of 6 | 0.006 | supported |
+| Parkinson's | substantia nigra | dopamine neurons | 3 of 7 | 0.22 | not supported |
+
+AD risk genes point to microglia in every donor, carried mostly by TREM2
+and MS4A4A. PD risk genes aren't specific to dopamine neurons; SNCA is the
+only strongly dopamine-leaning gene. Dopamine neurons are 0.32% of
+substantia nigra nuclei. For the PD risk genes, at most 4.7% of the tissue's
+signal comes from them, which is why bulk regional data can't reflect a
+dopamine-neuron effect on these genes. Dopamine marker genes get 13% to 88%
+of their signal from those neurons, and bulk data picks them up easily.
+
+![Cell types](results/v3/figures/fig9_celltypes.png)
+
 Full results: `docs/v2_results.md`. Figures: `results/v2/figures/`.
 
 ![Every run](results/v2/figures/fig7_sensitivity.png)
@@ -74,8 +95,9 @@ src/
   snca_checkpoint.py        replication of Liscovitch & French 2014
   analysis.py               contrasts, spatial and gene-set nulls, donor and leave-one-out checks
   power_check.py            positive controls and power (post hoc)
+  singlecell.py             v3: cell-type specificity in single-nucleus data, dilution
   gtex_check.py             external check in GTEx
-  figures.py                figures 1-8
+  figures.py                figures 1-10
 data/
   atlases/                  atlas images built by build_atlases.py
   gene_lists/               gene sets, audit tables, provenance
@@ -86,6 +108,8 @@ docs/
   analysis_plan.md          frozen before any v2 result was computed
   analysis_plan_amendment_1.md  positive controls and power, added after the results
   v2_results.md             results and what can be claimed
+  analysis_plan_v3.md       v3 plan, frozen before any single-cell value was computed
+  v3_results.md             v3 results
   revision_log.md           v1 -> v2 changes
   related_work.md           verified references
 archive/v1_exploratory/     v1 outputs and draft
@@ -102,8 +126,9 @@ python run_all.py
 
 The first run needs internet and several GB of disk: abagen downloads about
 4 GB of AHBA data to `~/abagen-data`, plus the CIT168 atlas, GENCODE v50, the
-HGNC gene table, and GTEx medians into `data/raw/`. Later runs reuse the
-cache. `python run_all.py --from analysis` reruns only the statistics and
+HGNC gene table, and GTEx medians into `data/raw/`. The v3 step downloads
+about 5.8 GB of single-nucleus data from CELLxGENE into
+`data/raw/singlecell/`. Later runs reuse the cache. `python run_all.py --from analysis` reruns only the statistics and
 figures.
 
 Versions: Python 3.11, abagen 0.1.3, BrainSMASH 0.11.0, pandas 1.5.3 (abagen

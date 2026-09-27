@@ -12,6 +12,8 @@ Figures for the v2 analysis. Each one answers a question from the review:
   fig7_sensitivity      the same contrast across every alternative choice
   fig8_power            how large an effect the tests could detect (post hoc,
                         docs/analysis_plan_amendment_1.md)
+  fig9_celltypes        v3: which cell type expresses each risk gene
+  fig10_dilution        v3: how much of the SN tissue signal comes from DA neurons
 
 python src/figures.py
 -> results/v2/figures/*.png
@@ -60,11 +62,11 @@ def hgrid(ax):
     ax.set_axisbelow(True)
 
 
-def save(fig, name):
-    OUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT / f"{name}.png", dpi=220, bbox_inches="tight")
+def save(fig, name, out=OUT):
+    out.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out / f"{name}.png", dpi=220, bbox_inches="tight")
     plt.close(fig)
-    print(f"wrote {OUT / name}.png")
+    print(f"wrote {out / name}.png")
 
 
 def fig1_sn_anatomy():
@@ -310,6 +312,71 @@ def fig8_power():
     save(fig, "fig8_power")
 
 
+def fig9_celltypes():
+    v3 = RESULTS / "v3"
+    if not (v3 / "gene_specificity.csv").exists():
+        print("skip fig9_celltypes: run src/singlecell.py first")
+        return
+    gs = pd.read_csv(v3 / "gene_specificity.csv")
+    tests = pd.read_csv(v3 / "specificity_tests.csv")
+    panels = [("kamath_sn", "parkinsons", "DA neurons", "A  Parkinson's genes in substantia nigra (Kamath et al. 2022)"),
+              ("siletti_ec", "alzheimers", "microglia", "B  Alzheimer's genes in entorhinal cortex (Siletti et al. 2023)")]
+    fig, axes = plt.subplots(1, 2, figsize=(13, 4.6), layout="constrained")
+    for ax, (dname, sname, target, title) in zip(axes, panels):
+        t = gs[(gs["dataset"] == dname) & (gs["gene_set"] == sname)].pivot(index="gene", columns="cell_class",
+                                                                           values="specificity")
+        cols = [target] + [c for c in t.columns if c != target]
+        t = t[cols].sort_values(target, ascending=False)
+        im = ax.imshow(t.values, cmap=SEQ, vmin=0, vmax=1, aspect="auto")
+        for i in range(t.shape[0]):
+            for j in range(t.shape[1]):
+                v = t.values[i, j]
+                ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=7,
+                        color=SURFACE if v > 0.55 else INK2)
+        ax.set_xticks(range(len(cols)), cols, rotation=30, ha="right")
+        ax.set_yticks(range(len(t)), t.index)
+        ax.add_patch(plt.Rectangle((-0.5, -0.5), 1, len(t), fill=False, edgecolor=ORANGE, linewidth=2))
+        r = tests[(tests["dataset"] == dname) & (tests["gene_set"] == sname) & (tests["kind"] == "primary")].iloc[0]
+        ax.set_title(f"{title}\n{target}: rank {int(r['target_rank'])} of {int(r['n_classes'])}, "
+                     f"p = {r['p']:.3f}, {r['verdict']}", fontsize=9)
+        ax.spines[:].set_visible(False)
+    cb = fig.colorbar(im, ax=axes, fraction=0.025, pad=0.01)
+    cb.set_label("share of the gene's expression, by cell class (rows sum to 1)", color=INK2)
+    save(fig, "fig9_celltypes", out=RESULTS / "v3" / "figures")
+
+
+def fig10_dilution():
+    v3 = RESULTS / "v3"
+    if not (v3 / "dilution.csv").exists():
+        print("skip fig10_dilution: run src/singlecell.py first")
+        return
+    d = pd.read_csv(v3 / "dilution.csv")
+    summ = (v3 / "dilution_summary.txt").read_text(encoding="utf-8")
+    nuc = float(summ.split("(")[1].split("%")[0]) / 100
+    umi = float(summ.strip().split(":")[-1])
+    d = d.sort_values(["gene_set", "share_of_sn_umis_from_da"], ascending=[False, True]).reset_index(drop=True)
+    fig, ax = plt.subplots(figsize=(8, 5.6))
+    colors = [BLUE if s == "pc_dopaminergic" else ORANGE for s in d["gene_set"]]
+    y = np.arange(len(d))
+    ax.hlines(y, 1e-3, d["share_of_sn_umis_from_da"], color=GRID, linewidth=1, zorder=1)
+    ax.scatter(d["share_of_sn_umis_from_da"], y, s=46, c=colors, edgecolor=SURFACE, linewidth=1.5, zorder=3)
+    ax.set_xscale("log")
+    ax.set_xlim(1e-3, 1.3)
+    for x, yy, label in [(nuc, 1.0, f"DA neurons' share of all SN nuclei ({100 * nuc:.2f}%)"),
+                         (umi, 3.0, f"DA neurons' share of all SN RNA ({100 * umi:.1f}%)")]:
+        ax.axvline(x, color=BASELINE, linewidth=1, linestyle="--")
+        ax.text(x * 1.08, yy, label, fontsize=7.5, color=MUTED, va="center")
+    ax.set_yticks(y, d["gene"])
+    ax.set_xlabel("share of the gene's substantia nigra signal that comes from DA-neuron nuclei (log scale)")
+    ax.set_title("Why bulk tissue sees dopamine markers but not dopamine-neuron effects on risk genes")
+    ax.scatter([], [], c=BLUE, s=40, label="dopaminergic marker genes")
+    ax.scatter([], [], c=ORANGE, s=40, label="Parkinson's risk genes (top 10 loci)")
+    ax.legend(loc="upper right", fontsize=8)
+    ax.grid(axis="x", color=GRID, linewidth=0.6); ax.set_axisbelow(True)
+    fig.tight_layout()
+    save(fig, "fig10_dilution", out=RESULTS / "v3" / "figures")
+
+
 if __name__ == "__main__":
     fig1_sn_anatomy()
     fig2_snca()
@@ -319,3 +386,5 @@ if __name__ == "__main__":
     fig6_donors()
     fig7_sensitivity()
     fig8_power()
+    fig9_celltypes()
+    fig10_dilution()

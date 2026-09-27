@@ -1,6 +1,6 @@
 # Related work
 
-Every reference below was checked against PubMed (PMIDs listed) on 2026-09-24.
+Every reference below was checked against PubMed or Europe PMC (PMIDs listed) on 2026-09-24 or 2026-09-27.
 The descriptions are short summaries for orientation. Read the papers before
 citing them for anything specific.
 
@@ -17,6 +17,9 @@ citing them for anything specific.
 | McColgan et al. 2018, *Biological Psychiatry* 83:456-465 (PMID 29174593) | HD | AHBA | White matter loss in HD | Enrichment of gene categories in regions that degenerate. |
 | Liscovitch & French 2014, *PLoS ONE* 9:e115029 (PMID 25493648) | PD | AHBA | None (expression and co-expression only) | Source of the SNCA checkpoint: SNc 2nd of 105 regions, SNr 88th. |
 | Kamath et al. 2022, *Nature Neuroscience* 25:588-595 (PMID 35513515) | PD | Single-nucleus RNA-seq from human SN | Loss of a specific dopamine-neuron subtype in PD | Shows vulnerability is cell-type specific, below the resolution of any AHBA region. |
+| Agarwal et al. 2020, *Nature Communications* 11:4183 (PMID 32826893) | PD | Single-nucleus RNA-seq from human SN | PD genetic risk (GWAS) by cell type | Links PD risk to dopamine neurons and oligodendrocytes. v3 tests both with nearest-gene sets. |
+| Bryois et al. 2020, *Nature Genetics* 52:482-493 (PMID 32341526) | PD and other traits | Mouse single-cell atlases | GWAS heritability by cell type | Cell-type heritability approach to PD, with more genes and a different statistic than v3. |
+| Nott et al. 2019, *Science* 366:1134-1139 (PMID 31727856) | AD and others | Cell-type enhancer and promoter maps from human brain | AD risk variants by cell type | AD risk variants sit mostly in microglial regulatory elements; v3's AD hypothesis comes from here. |
 
 ## Methods references
 
@@ -29,6 +32,8 @@ citing them for anything specific.
 | Fulcher et al. 2021, *Nature Communications* 12:2669 (PMID 33976144) | False positives in gene-set enrichment on spatial brain data |
 | Wu & Smyth 2012, *Nucleic Acids Research* 40:e133 (PMID 22638577) | CAMERA competitive gene-set test with an inter-gene correlation correction |
 | Pauli et al. 2018, *Scientific Data* 5:180063 (PMID 29664465) | CIT168 subcortical atlas (SNc and SNr) |
+| Skene & Grant 2016, *Frontiers in Neuroscience* 10:16 (PMID 26858593) | EWCE cell-type specificity score used in v3 |
+| Siletti et al. 2023, *Science* 382:eadd7046 (PMID 37824663) | Human brain single-nucleus atlas (SN, entorhinal and striatal dissections) used in v3 |
 
 ## What this project can add
 

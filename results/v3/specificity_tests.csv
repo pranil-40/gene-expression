@@ -1,0 +1,18 @@
+kind,dataset,gene_set,target,n_genes_used,n_genes_requested,genes_missing,score,null_mean,z,p,target_rank,n_classes,top_class,donors_eligible,donors_positive,p_bh,verdict
+primary,kamath_sn,parkinsons,DA neurons,9,10,CRHR1,0.154396227871414,0.13098172194001942,0.695265614515758,0.22177782221777823,3,7,OPCs,8,8,0.22177782221777823,not supported
+primary,siletti_ec,alzheimers,microglia,10,10,,0.36343147317329366,0.18623220367539137,2.949803357087527,0.005599440055994401,1,6,microglia,3,3,0.011198880111988802,supported
+secondary: replication,siletti_sn,parkinsons,DA neurons,10,10,,0.1590480663181672,0.1274237730031492,1.0303481872120583,0.15248475152484753,3,7,OPCs,1,1,,
+secondary: oligodendrocytes,kamath_sn,parkinsons,oligodendrocytes,9,10,CRHR1,0.15517635217517817,0.15230320056180868,0.06698375242900365,0.42015798420157985,2,7,OPCs,8,4,,
+secondary: oligodendrocytes,siletti_sn,parkinsons,oligodendrocytes,10,10,,0.13587220130665906,0.15795309977978259,-0.4839813466843119,0.6532346765323468,4,7,OPCs,3,0,,
+secondary: all GWS loci,kamath_sn,parkinsons_all_gws,DA neurons,86,92,CRHR1;GBA1;FAM47E;SLC44A4;CHD9NB;TRIM40,0.13804973054706016,0.12808712307467118,0.8946159892022177,0.1837816218378162,3,7,microglia,8,7,,
+secondary: all GWS loci,siletti_sn,parkinsons_all_gws,DA neurons,92,92,,0.14599219268894614,0.12867197103937014,1.5825352427851758,0.06419358064193581,2,7,microglia,1,1,,
+secondary: all GWS loci,siletti_ec,alzheimers_all_gws,microglia,82,82,,0.3516884133949886,0.1746308253411414,9.00736379064191,9.999000099990002e-05,1,6,microglia,3,3,,
+positive control,kamath_sn,pc_dopaminergic,DA neurons,10,10,,0.7861660917647366,0.12320715743050341,20.84677301493384,9.999000099990002e-05,1,7,DA neurons,8,8,,
+positive control (circular: SLC6A3 defines the class),siletti_sn,pc_dopaminergic,DA neurons,10,10,,0.893260268030917,0.1277901349360822,16.695838556193642,9.999000099990002e-05,1,7,DA neurons,1,1,,
+positive control,siletti_ec,pc_microglia,microglia,10,10,,0.8546418959018751,0.19349602884619654,10.034134476092511,9.999000099990002e-05,1,6,microglia,3,3,,
+positive control,siletti_str,pc_striatal_msn,MSNs,10,10,,0.5368172727919742,0.1892259528635964,8.249170998899995,9.999000099990002e-05,1,7,MSNs,3,3,,
+exploratory: HD,siletti_str,huntingtons_htt,MSNs,1,1,,0.18362673913812355,0.206773824686627,-0.16003499765833615,0.41705829417058293,1,7,MSNs,3,0,,
+exploratory: HD,siletti_str,huntingtons_modifiers,MSNs,9,9,,0.12742360119103815,0.1441542404961329,-0.45844125488819576,0.6408359164083591,6,7,microglia,3,0,,
+exploratory: DA subtypes,kamath_da_subtypes,parkinsons,SOX6_AGTR1,9,10,CRHR1,0.09502587991325614,0.09041899369758383,0.4663077133314806,0.286971302869713,7,10,CALB1_RBP4,7,7,,
+exploratory: DA subtypes,kamath_da_subtypes,parkinsons_all_gws,SOX6_AGTR1,86,92,CRHR1;GBA1;FAM47E;SLC44A4;CHD9NB;TRIM40,0.09649205487776662,0.0899613862055825,1.3012918455865687,0.11098890110988902,7,10,SOX6_DDT,7,6,,
+exploratory: DA subtypes,kamath_da_subtypes,pc_dopaminergic,SOX6_AGTR1,10,10,,0.08290561674796071,0.09450775653142568,-1.2074405062342008,0.9033096690330967,9,10,SOX6_DDT,7,0,,

@@ -1,0 +1,194 @@
+dataset,gene_set,gene,cell_class,specificity
+kamath_sn,parkinsons,SNCA,DA neurons,0.3825935251225048
+kamath_sn,parkinsons,LRRK2,DA neurons,0.0704017062036202
+kamath_sn,parkinsons,KRTCAP2,DA neurons,0.061303532006481976
+kamath_sn,parkinsons,TMEM175,DA neurons,0.1818072575331393
+kamath_sn,parkinsons,NSF,DA neurons,0.26750179753128345
+kamath_sn,parkinsons,STK39,DA neurons,0.1871272668681181
+kamath_sn,parkinsons,HIP1R,DA neurons,0.03364362694594324
+kamath_sn,parkinsons,MCCC1,DA neurons,0.13475785543020868
+kamath_sn,parkinsons,NUCKS1,DA neurons,0.07042948320142615
+kamath_sn,parkinsons,SNCA,OPCs,0.12518216530540235
+kamath_sn,parkinsons,LRRK2,OPCs,0.4155165529704763
+kamath_sn,parkinsons,KRTCAP2,OPCs,0.1285170876035735
+kamath_sn,parkinsons,TMEM175,OPCs,0.14760842915338668
+kamath_sn,parkinsons,NSF,OPCs,0.10177138293940115
+kamath_sn,parkinsons,STK39,OPCs,0.14230432904467355
+kamath_sn,parkinsons,HIP1R,OPCs,0.5084316716748016
+kamath_sn,parkinsons,MCCC1,OPCs,0.14972137605250463
+kamath_sn,parkinsons,NUCKS1,OPCs,0.12551281194708636
+kamath_sn,parkinsons,SNCA,astrocytes,0.019970726005023937
+kamath_sn,parkinsons,LRRK2,astrocytes,0.0503773094208599
+kamath_sn,parkinsons,KRTCAP2,astrocytes,0.09077819211118936
+kamath_sn,parkinsons,TMEM175,astrocytes,0.13261299401061538
+kamath_sn,parkinsons,NSF,astrocytes,0.04705441697081548
+kamath_sn,parkinsons,STK39,astrocytes,0.06544470013362771
+kamath_sn,parkinsons,HIP1R,astrocytes,0.19125998791134258
+kamath_sn,parkinsons,MCCC1,astrocytes,0.13805863065747645
+kamath_sn,parkinsons,NUCKS1,astrocytes,0.12322224353124142
+kamath_sn,parkinsons,SNCA,endothelial,0.024752747705845454
+kamath_sn,parkinsons,LRRK2,endothelial,0.07744938111328106
+kamath_sn,parkinsons,KRTCAP2,endothelial,0.2610230546058566
+kamath_sn,parkinsons,TMEM175,endothelial,0.09983121824245748
+kamath_sn,parkinsons,NSF,endothelial,0.08109201208089128
+kamath_sn,parkinsons,STK39,endothelial,0.1525897044457775
+kamath_sn,parkinsons,HIP1R,endothelial,0.031880981234228514
+kamath_sn,parkinsons,MCCC1,endothelial,0.07186114808144074
+kamath_sn,parkinsons,NUCKS1,endothelial,0.23983103015678647
+kamath_sn,parkinsons,SNCA,microglia,0.20083967584439313
+kamath_sn,parkinsons,LRRK2,microglia,0.3208750286219645
+kamath_sn,parkinsons,KRTCAP2,microglia,0.18629062841794378
+kamath_sn,parkinsons,TMEM175,microglia,0.12913350971106197
+kamath_sn,parkinsons,NSF,microglia,0.11356735314273317
+kamath_sn,parkinsons,STK39,microglia,0.030179958761555704
+kamath_sn,parkinsons,HIP1R,microglia,0.01744625702552312
+kamath_sn,parkinsons,MCCC1,microglia,0.1822880704760974
+kamath_sn,parkinsons,NUCKS1,microglia,0.11204655741241798
+kamath_sn,parkinsons,SNCA,oligodendrocytes,0.14742960862274823
+kamath_sn,parkinsons,LRRK2,oligodendrocytes,0.009475640564261943
+kamath_sn,parkinsons,KRTCAP2,oligodendrocytes,0.2146163077131866
+kamath_sn,parkinsons,TMEM175,oligodendrocytes,0.1595822888928688
+kamath_sn,parkinsons,NSF,oligodendrocytes,0.05368209104401347
+kamath_sn,parkinsons,STK39,oligodendrocytes,0.25212155858864055
+kamath_sn,parkinsons,HIP1R,oligodendrocytes,0.1886649555332748
+kamath_sn,parkinsons,MCCC1,oligodendrocytes,0.16341753258068073
+kamath_sn,parkinsons,NUCKS1,oligodendrocytes,0.20759718603692814
+kamath_sn,parkinsons,SNCA,other neurons,0.09923155139408216
+kamath_sn,parkinsons,LRRK2,other neurons,0.055904381105536124
+kamath_sn,parkinsons,KRTCAP2,other neurons,0.057471197541768104
+kamath_sn,parkinsons,TMEM175,other neurons,0.1494243024564706
+kamath_sn,parkinsons,NSF,other neurons,0.33533094629086185
+kamath_sn,parkinsons,STK39,other neurons,0.17023248215760692
+kamath_sn,parkinsons,HIP1R,other neurons,0.028672519674886213
+kamath_sn,parkinsons,MCCC1,other neurons,0.15989538672159145
+kamath_sn,parkinsons,NUCKS1,other neurons,0.12136068771411357
+siletti_sn,parkinsons,SNCA,DA neurons,0.3769165611998389
+siletti_sn,parkinsons,LRRK2,DA neurons,0.053387326174642175
+siletti_sn,parkinsons,KRTCAP2,DA neurons,0.037385934024463954
+siletti_sn,parkinsons,TMEM175,DA neurons,0.14740744241501555
+siletti_sn,parkinsons,CRHR1,DA neurons,0.21583650831110585
+siletti_sn,parkinsons,NSF,DA neurons,0.3099271116631552
+siletti_sn,parkinsons,STK39,DA neurons,0.16961737185872156
+siletti_sn,parkinsons,HIP1R,DA neurons,0.042431391198526035
+siletti_sn,parkinsons,MCCC1,DA neurons,0.13482260746264538
+siletti_sn,parkinsons,NUCKS1,DA neurons,0.10274840887355723
+siletti_sn,parkinsons,SNCA,OPCs,0.10144638445651903
+siletti_sn,parkinsons,LRRK2,OPCs,0.520711666219791
+siletti_sn,parkinsons,KRTCAP2,OPCs,0.17861450995224412
+siletti_sn,parkinsons,TMEM175,OPCs,0.13292144379313142
+siletti_sn,parkinsons,CRHR1,OPCs,0.36287153392660215
+siletti_sn,parkinsons,NSF,OPCs,0.08933403176298547
+siletti_sn,parkinsons,STK39,OPCs,0.1508197633537162
+siletti_sn,parkinsons,HIP1R,OPCs,0.4886730440858241
+siletti_sn,parkinsons,MCCC1,OPCs,0.1295359326974226
+siletti_sn,parkinsons,NUCKS1,OPCs,0.11895066899142576
+siletti_sn,parkinsons,SNCA,astrocytes,0.01055675436277824
+siletti_sn,parkinsons,LRRK2,astrocytes,0.05154670254038259
+siletti_sn,parkinsons,KRTCAP2,astrocytes,0.10471679451014827
+siletti_sn,parkinsons,TMEM175,astrocytes,0.15230470904031615
+siletti_sn,parkinsons,CRHR1,astrocytes,0.017130306505291317
+siletti_sn,parkinsons,NSF,astrocytes,0.056172294514166186
+siletti_sn,parkinsons,STK39,astrocytes,0.0551992982361241
+siletti_sn,parkinsons,HIP1R,astrocytes,0.1838726475432349
+siletti_sn,parkinsons,MCCC1,astrocytes,0.13589277436172656
+siletti_sn,parkinsons,NUCKS1,astrocytes,0.12805188897707057
+siletti_sn,parkinsons,SNCA,microglia,0.2515380633219454
+siletti_sn,parkinsons,LRRK2,microglia,0.2187868469584219
+siletti_sn,parkinsons,KRTCAP2,microglia,0.0950825373145641
+siletti_sn,parkinsons,TMEM175,microglia,0.11988714180936845
+siletti_sn,parkinsons,CRHR1,microglia,0.0015727987846541056
+siletti_sn,parkinsons,NSF,microglia,0.13783460385696228
+siletti_sn,parkinsons,STK39,microglia,0.011173904415695546
+siletti_sn,parkinsons,HIP1R,microglia,0.004350464673531316
+siletti_sn,parkinsons,MCCC1,microglia,0.2256948804853987
+siletti_sn,parkinsons,NUCKS1,microglia,0.12940678967437663
+siletti_sn,parkinsons,SNCA,oligodendrocytes,0.15056819341396988
+siletti_sn,parkinsons,LRRK2,oligodendrocytes,0.0019366851248834212
+siletti_sn,parkinsons,KRTCAP2,oligodendrocytes,0.16508918498153474
+siletti_sn,parkinsons,TMEM175,oligodendrocytes,0.13774654553347646
+siletti_sn,parkinsons,CRHR1,oligodendrocytes,0.02512923129015326
+siletti_sn,parkinsons,NSF,oligodendrocytes,0.051674464058385466
+siletti_sn,parkinsons,STK39,oligodendrocytes,0.3105787584462871
+siletti_sn,parkinsons,HIP1R,oligodendrocytes,0.21283278601799388
+siletti_sn,parkinsons,MCCC1,oligodendrocytes,0.14588997976757412
+siletti_sn,parkinsons,NUCKS1,oligodendrocytes,0.157276184432332
+siletti_sn,parkinsons,SNCA,other neurons,0.09577989778764669
+siletti_sn,parkinsons,LRRK2,other neurons,0.04965623800344132
+siletti_sn,parkinsons,KRTCAP2,other neurons,0.25630480257254873
+siletti_sn,parkinsons,TMEM175,other neurons,0.21471975187489808
+siletti_sn,parkinsons,CRHR1,other neurons,0.37745962118219334
+siletti_sn,parkinsons,NSF,other neurons,0.3088734633189504
+siletti_sn,parkinsons,STK39,other neurons,0.12265143966122014
+siletti_sn,parkinsons,HIP1R,other neurons,0.047983861063007005
+siletti_sn,parkinsons,MCCC1,other neurons,0.1400811926702453
+siletti_sn,parkinsons,NUCKS1,other neurons,0.16521835263127038
+siletti_sn,parkinsons,SNCA,vascular,0.013194145457301918
+siletti_sn,parkinsons,LRRK2,vascular,0.10397453497843753
+siletti_sn,parkinsons,KRTCAP2,vascular,0.16280623664449603
+siletti_sn,parkinsons,TMEM175,vascular,0.09501296553379397
+siletti_sn,parkinsons,CRHR1,vascular,0.0
+siletti_sn,parkinsons,NSF,vascular,0.04618403082539504
+siletti_sn,parkinsons,STK39,vascular,0.1799594640282355
+siletti_sn,parkinsons,HIP1R,vascular,0.019855805417882715
+siletti_sn,parkinsons,MCCC1,vascular,0.08808263255498719
+siletti_sn,parkinsons,NUCKS1,vascular,0.19834770641996743
+siletti_ec,alzheimers,BIN1,OPCs,0.04453051111129573
+siletti_ec,alzheimers,EED,OPCs,0.12937570134155318
+siletti_ec,alzheimers,CR1,OPCs,0.15724322610756636
+siletti_ec,alzheimers,CLU,OPCs,0.053961359918654424
+siletti_ec,alzheimers,MS4A4A,OPCs,0.0
+siletti_ec,alzheimers,ABCA7,OPCs,0.05533621932954396
+siletti_ec,alzheimers,TREM2,OPCs,0.0
+siletti_ec,alzheimers,SPDYE3,OPCs,0.13550816045271366
+siletti_ec,alzheimers,APH1B,OPCs,0.13992729807773527
+siletti_ec,alzheimers,PTK2B,OPCs,0.03750220205809526
+siletti_ec,alzheimers,BIN1,astrocytes,0.01974605915705194
+siletti_ec,alzheimers,EED,astrocytes,0.14840691862495034
+siletti_ec,alzheimers,CR1,astrocytes,0.0054973147681305085
+siletti_ec,alzheimers,CLU,astrocytes,0.5922564222580773
+siletti_ec,alzheimers,MS4A4A,astrocytes,0.002915601875033505
+siletti_ec,alzheimers,ABCA7,astrocytes,0.1521763506205488
+siletti_ec,alzheimers,TREM2,astrocytes,0.0
+siletti_ec,alzheimers,SPDYE3,astrocytes,0.17240966637072674
+siletti_ec,alzheimers,APH1B,astrocytes,0.1367854316366682
+siletti_ec,alzheimers,PTK2B,astrocytes,0.09528068038474094
+siletti_ec,alzheimers,BIN1,microglia,0.42993740515725903
+siletti_ec,alzheimers,EED,microglia,0.37474173940308664
+siletti_ec,alzheimers,CR1,microglia,0.13502913548136158
+siletti_ec,alzheimers,CLU,microglia,0.032376483063220385
+siletti_ec,alzheimers,MS4A4A,microglia,0.9930833821250031
+siletti_ec,alzheimers,ABCA7,microglia,0.10880764488744502
+siletti_ec,alzheimers,TREM2,microglia,0.9961354457455054
+siletti_ec,alzheimers,SPDYE3,microglia,0.05816364420415709
+siletti_ec,alzheimers,APH1B,microglia,0.21400229001233198
+siletti_ec,alzheimers,PTK2B,microglia,0.2920375616535665
+siletti_ec,alzheimers,BIN1,neurons,0.08294226299096613
+siletti_ec,alzheimers,EED,neurons,0.11772109981007588
+siletti_ec,alzheimers,CR1,neurons,0.013063198077900642
+siletti_ec,alzheimers,CLU,neurons,0.058171732299925574
+siletti_ec,alzheimers,MS4A4A,neurons,0.0040010159999634065
+siletti_ec,alzheimers,ABCA7,neurons,0.5471046443501745
+siletti_ec,alzheimers,TREM2,neurons,0.0005383431428068632
+siletti_ec,alzheimers,SPDYE3,neurons,0.31127355167680154
+siletti_ec,alzheimers,APH1B,neurons,0.11031451659894775
+siletti_ec,alzheimers,PTK2B,neurons,0.27867688771619215
+siletti_ec,alzheimers,BIN1,oligodendrocytes,0.3899460608113691
+siletti_ec,alzheimers,EED,oligodendrocytes,0.13174335956952374
+siletti_ec,alzheimers,CR1,oligodendrocytes,0.24396407119890898
+siletti_ec,alzheimers,CLU,oligodendrocytes,0.057385845489447466
+siletti_ec,alzheimers,MS4A4A,oligodendrocytes,0.0
+siletti_ec,alzheimers,ABCA7,oligodendrocytes,0.07349287277203627
+siletti_ec,alzheimers,TREM2,oligodendrocytes,0.0033262111116877623
+siletti_ec,alzheimers,SPDYE3,oligodendrocytes,0.21006847573800067
+siletti_ec,alzheimers,APH1B,oligodendrocytes,0.1404676540838445
+siletti_ec,alzheimers,PTK2B,oligodendrocytes,0.0871285975555662
+siletti_ec,alzheimers,BIN1,vascular,0.03289770077205791
+siletti_ec,alzheimers,EED,vascular,0.09801118125081025
+siletti_ec,alzheimers,CR1,vascular,0.445203054366132
+siletti_ec,alzheimers,CLU,vascular,0.20584815697067482
+siletti_ec,alzheimers,MS4A4A,vascular,0.0
+siletti_ec,alzheimers,ABCA7,vascular,0.06308226804025144
+siletti_ec,alzheimers,TREM2,vascular,0.0
+siletti_ec,alzheimers,SPDYE3,vascular,0.11257650155760035
+siletti_ec,alzheimers,APH1B,vascular,0.2585028095904724
+siletti_ec,alzheimers,PTK2B,vascular,0.2093740706318389

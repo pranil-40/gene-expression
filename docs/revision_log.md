@@ -142,6 +142,26 @@ needed about 3.75, against the observed 0.64. The v2 verdicts stand, and
 their reading is now "no large enrichment". `analysis.run()` gained an
 optional `tgt` argument for the controls; no existing run changes.
 
+## v3: cell types (2026-09-27)
+
+The power analysis showed bulk regional data can only detect large effects,
+and published single-cell studies place PD risk in dopamine neurons and AD
+risk in microglia. v3 asks the question at that resolution.
+`docs/analysis_plan_v3.md` was frozen before any single-nucleus expression
+value was computed. `src/singlecell.py` streams public CELLxGENE files
+(Kamath et al. 2022; Siletti et al. 2023) and runs the same kind of
+random-gene-set test on cell types.
+
+- AD genes in microglia: supported.
+- PD genes in dopamine neurons: not supported, in two datasets.
+- Dopamine neurons are 0.32% of SN nuclei. At most 4.7% of each PD gene's
+  SN signal comes from them.
+- A post hoc check showed microglia markers are moderately higher in
+  entorhinal cortex in bulk AHBA, so "microglia are evenly spread" doesn't
+  explain the v2 AD null. The AD set's mix of cell types does.
+
+Results: `docs/v3_results.md`. New dependency: `h5py`.
+
 ## Files
 
 - New code: `src/common.py`, `build_atlases.py`, `expression.py`,

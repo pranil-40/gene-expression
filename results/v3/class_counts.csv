@@ -1,0 +1,38 @@
+cell_class,n_cells,dataset
+DA neurons,15684,kamath_sn
+OPCs,5866,kamath_sn
+astrocytes,14579,kamath_sn
+endothelial,8092,kamath_sn
+microglia,16755,kamath_sn
+oligodendrocytes,76837,kamath_sn
+other neurons,46860,kamath_sn
+OPCs,997,siletti_ec
+astrocytes,1810,siletti_ec
+microglia,749,siletti_ec
+neurons,73426,siletti_ec
+oligodendrocytes,2653,siletti_ec
+vascular,116,siletti_ec
+DA neurons,192,siletti_sn
+OPCs,3933,siletti_sn
+astrocytes,5312,siletti_sn
+microglia,6385,siletti_sn
+oligodendrocytes,34626,siletti_sn
+other neurons,8232,siletti_sn
+vascular,408,siletti_sn
+MSNs,54849,siletti_str
+OPCs,837,siletti_str
+astrocytes,1618,siletti_str
+microglia,441,siletti_str
+oligodendrocytes,3281,siletti_str
+other neurons,5763,siletti_str
+vascular,141,siletti_str
+CALB1_CALCR,1597,kamath_da_subtypes
+CALB1_CRYM_CCDC68,682,kamath_da_subtypes
+CALB1_GEM,517,kamath_da_subtypes
+CALB1_PPP1R17,757,kamath_da_subtypes
+CALB1_RBP4,464,kamath_da_subtypes
+CALB1_TRHR,255,kamath_da_subtypes
+SOX6_AGTR1,6612,kamath_da_subtypes
+SOX6_DDT,1705,kamath_da_subtypes
+SOX6_GFRA2,1063,kamath_da_subtypes
+SOX6_PART1,2032,kamath_da_subtypes

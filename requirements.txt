@@ -12,3 +12,5 @@ joblib==1.6.0
 matplotlib==3.11.2
 nibabel==5.4.2
 requests==2.34.2
+# v3 reads CELLxGENE .h5ad files directly
+h5py==3.16.0
